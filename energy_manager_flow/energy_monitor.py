@@ -4,6 +4,7 @@ import time
 import requests
 import threading
 import signal
+import sensors_data
 from datetime import datetime
 
 
@@ -22,8 +23,9 @@ class EnergyMonitor(object):
         """
         while not self.stop:
             now = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-            # TODO: Get measure from sensor (format?)
-            data = {"amount": 0.5,  # Amount of generation at this moment
+            # Get measure from sensor
+            value = sensors_data.get_sensor_value("generation_1")
+            data = {"amount": value,  # Amount of generation at this moment
                     "datetime": now,
                     "type": "generated",
                     "community_id": self.community_id
@@ -49,24 +51,24 @@ class EnergyMonitor(object):
             now = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
             c_type = "consumed"
 
-            # TODO: Get measures from building sensors
+            # Get measures from building and neighbours sensors
+            for sensor in sensors_data.SENSORS["consumption"]:
+                value = sensors_data.get_sensor_value(sensor)
+                data = {"amount": value,  # Amount being consumed at this moment
+                        "datetime": now,
+                        "sensor_id": sensor,  # Common places or neighbour id
+                        "type": c_type,
+                        "community_id": self.community_id
+                        }
 
-            # for sensor in sensors:
-            data = {"amount": 0.5,  # Amount being consumed at this moment
-                    "datetime": now,
-                    "sensor_id": "sensor.id",  # Common places or neighbour id
-                    "type": c_type,
-                    "community_id": self.community_id
-                    }
+                response = requests.get("http://localhost:3000",
+                                        params={"message": str(data)})
+                response = response.json()
+                msg_root = response['root']
+                data.update({'mam_address': msg_root})
 
-            response = requests.get("http://localhost:3000",
-                                    params={"message": str(data)})
-            response = response.json()
-            msg_root = response['root']
-            data.update({'mam_address': msg_root})
-
-            # TODO send amount and root to SaaS
-            # response = requests.post("https://back.comunitaria.com/...", json=data)
+                # TODO send amount and root to SaaS
+                # response = requests.post("https://back.comunitaria.com/...", json=data)
 
             time.sleep(5)  # Every 5 seconds
 
@@ -80,7 +82,7 @@ class EnergyMonitor(object):
         signal.signal(signal.SIGTERM, self.stop_process())
 
         t1 = threading.Thread(target=self.generation_monitor)
-        t2 = threading.Thread(target=self.autoconsuming_monitor)
+        t2 = threading.Thread(target=self.consuming_monitor)
         t1.start()
         t2.start()
         print("Started...")
