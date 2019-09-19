@@ -6,14 +6,17 @@ import threading
 import signal
 import sensors_data
 from datetime import datetime
+import config
 
+
+datetime_format = "%Y-%m-%d %H:%M:%S+00:00"
 
 class EnergyMonitor(object):
     """
     """
 
-    def __init__(self, community_id):
-        self.community_id = community_id
+    def __init__(self, community_token):
+        self.community_token = community_token
         self.stop = False
 
     def generation_monitor(self):
@@ -22,13 +25,13 @@ class EnergyMonitor(object):
             sending to MAM
         """
         while not self.stop:
-            now = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+            now = datetime.utcnow().strftime(datetime_format)
             # Get measure from sensor
             value = sensors_data.get_sensor_value("generation_1")
             data = {"amount": value,  # Amount of generation at this moment
                     "datetime": now,
                     "type": "generated",
-                    "community_id": self.community_id
+                    "token": self.community_token
                     }
             
             response = requests.get("http://localhost:3000",
@@ -37,8 +40,9 @@ class EnergyMonitor(object):
             msg_root = response['root']
             data.update({'mam_address': msg_root})
 
-            # TODO send amount and root to SaaS
-            # response = requests.post("https://back.comunitaria.com/...", json=data)
+            # Send data to SaaS
+            response = requests.post("%s/energy/save" % config.base_backend_url,
+                                     json=data)
 
             time.sleep(5)  # Every 5 seconds
 
@@ -48,7 +52,7 @@ class EnergyMonitor(object):
             neighbour sensor to measure consuming.
         """
         while not self.stop:
-            now = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+            now = datetime.utcnow().strftime(datetime_format)
             c_type = "consumed"
 
             # Get measures from building and neighbours sensors
@@ -58,7 +62,7 @@ class EnergyMonitor(object):
                         "datetime": now,
                         "sensor_id": sensor,  # Common places or neighbour id
                         "type": c_type,
-                        "community_id": self.community_id
+                        "token": self.community_token
                         }
 
                 response = requests.get("http://localhost:3000",
@@ -67,9 +71,9 @@ class EnergyMonitor(object):
                 msg_root = response['root']
                 data.update({'mam_address': msg_root})
 
-                # TODO send amount and root to SaaS
-                # response = requests.post("https://back.comunitaria.com/...", json=data)
-
+                # Send data to SaaS
+                response = requests.post("%s/energy/save" % config.base_backend_url,
+                                         json=data)
             time.sleep(5)  # Every 5 seconds
 
     def stop_process(self):

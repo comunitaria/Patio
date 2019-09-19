@@ -3,23 +3,21 @@ import requests
 import time
 from multiprocessing import Process
 from energy_monitor import EnergyMonitor
-from lightning_manager import LightningManager
+import config
+
 
 if __name__ == '__main__':
     """
         Starts the EnergyMonitor process, monitoring
         generated and consumed energy inside a community.
         Also, every some seconds, it checks pending messages
-        from SaaS (to open/close channels, start/stop something, ..),
-        and pending invoices to be payed through the Lightning Manager.
+        from SaaS.
     """
-    community_id = "1"
+    community_token = config.community_token
     stop = False
 
-    em = EnergyMonitor(community_id)
+    em = EnergyMonitor(community_token)
     em_p = Process(target=em.run)
-
-    lm = LightningManager(community_id)
 
     def stop_handler(signum, frame):
         global stop
@@ -32,14 +30,8 @@ if __name__ == '__main__':
     em_p.start()
 
     while not stop:
-        # TODO: Get pending messages from SaaS
-        #       Interact with LM to open channels
-        # TODO: Get pending invoicing from SaaS
-        #       Interact with LM to make payments
-        #       Send to SaaS the payment confirmation
-
-        time.sleep(5)
-
+        # Enhancement: Get pending messages from SaaS
+        time.sleep(3)
     
 
     em_p.join()
