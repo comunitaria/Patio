@@ -44,6 +44,9 @@ class EnergyMonitor(object):
             response = requests.post("%s/energy/save" % config.base_backend_url,
                                      json=data)
 
+            if not response.ok:
+                print(response.content)
+
             time.sleep(5)  # Every 5 seconds
 
     def consuming_monitor(self):
@@ -74,6 +77,9 @@ class EnergyMonitor(object):
                 # Send data to SaaS
                 response = requests.post("%s/energy/save" % config.base_backend_url,
                                          json=data)
+                if not response.ok:
+                    print(response.content)
+
             time.sleep(5)  # Every 5 seconds
 
     def stop_process(self):

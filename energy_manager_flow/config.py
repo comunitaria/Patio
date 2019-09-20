@@ -2,7 +2,7 @@ TESTING_BACK = True
 MOCK_SENSORS = True
 
 if TESTING_BACK:
-    base_backend_url = "http://6d9c4fab.ngrok.io" # "http://localhost:8000"
+    base_backend_url =  "http://localhost:8000"
 else:
     base_backend_url = "https://back.comunitaria.com"
 

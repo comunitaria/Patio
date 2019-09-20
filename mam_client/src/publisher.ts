@@ -44,12 +44,23 @@ app.get('/', async (req: any, res: any) => {
   
 });
 
-app.listen(3000, function (err: any) {
+const server = app.listen(3000, function (err: any) {
       if (err) { 
          console.log(err);
       } else {
          console.log("App started at port 3000");
       }    
 });
+
+process.on('SIGTERM', () => {
+  server.close(() => {
+    console.log('Process terminated')
+  })
+})
+process.on('SIGINT', () => {
+  server.close(() => {
+    console.log('Process terminated')
+  })
+})
 
 // ./node_modules/.bin/ts-node src/publisher.ts
