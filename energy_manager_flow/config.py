@@ -1,8 +1,10 @@
 TESTING_BACK = True
 MOCK_SENSORS = True
 
+power_unit = 'W'
+
 if TESTING_BACK:
-    base_backend_url =  "http://localhost:8000"
+    base_backend_url = "http://localhost:8000"
 else:
     base_backend_url = "https://back.comunitaria.com"
 

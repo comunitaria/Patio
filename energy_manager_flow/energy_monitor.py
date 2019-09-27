@@ -25,9 +25,14 @@ class EnergyMonitor(object):
             sending to MAM
         """
         while not self.stop:
+            time.sleep(5)  # Every 5 seconds
+            
             now = datetime.utcnow().strftime(datetime_format)
             # Get measure from sensor
             value = sensors_data.get_sensor_value("generation_1")
+            if float(value.replace(config.power_unit, '').strip()) <= 0.001:
+                continue
+
             data = {"amount": value,  # Amount of generation at this moment
                     "datetime": now,
                     "type": "generated",
@@ -47,7 +52,6 @@ class EnergyMonitor(object):
             if not response.ok:
                 print(response.content)
 
-            time.sleep(5)  # Every 5 seconds
 
     def consuming_monitor(self):
         """
@@ -55,12 +59,17 @@ class EnergyMonitor(object):
             neighbour sensor to measure consuming.
         """
         while not self.stop:
+            time.sleep(5)  # Every 5 seconds
+            
             now = datetime.utcnow().strftime(datetime_format)
             c_type = "consumed"
 
             # Get measures from building and neighbours sensors
             for sensor in sensors_data.SENSORS["consumption"]:
                 value = sensors_data.get_sensor_value(sensor)
+                if float(value.replace(config.power_unit, '').strip()) <= 0.001:
+                    continue
+
                 data = {"amount": value,  # Amount being consumed at this moment
                         "datetime": now,
                         "sensor_id": sensor,  # Common places or neighbour id
@@ -80,7 +89,6 @@ class EnergyMonitor(object):
                 if not response.ok:
                     print(response.content)
 
-            time.sleep(5)  # Every 5 seconds
 
     def stop_process(self):
         def stop_handler(signum, frame):

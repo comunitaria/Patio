@@ -4,6 +4,7 @@ import config
 
 # This dict is fixed. But in the future it'll be get from SaaS API to get data
 # for the specific community
+# In the case of 'neighbour_X', X is the UserCommunity ID from backend
 SENSORS = {"generation": {"generation_1": ""},
            "consumption": {"common_place_1": "",  # value should be the addr of the sensor
                            "neighbour_1": ""
