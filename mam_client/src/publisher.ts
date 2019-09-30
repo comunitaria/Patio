@@ -4,7 +4,8 @@ const Mam = require('@iota/mam'); // require('./mam.client.js');
 const IOTA = require('iota.lib.js');
 const express = require('express');
 
-var iota = new IOTA({ provider: `https://nodes.devnet.iota.org` })
+// remove 'devnet' for mainnet
+var iota = new IOTA({ provider: `https://nodes.devnet.thetangle.org` })
 const app = express();
 
 // Initialise MAM State - PUBLIC
@@ -22,7 +23,8 @@ const publish = async (packet: any) => {
   mamState = message.state
   // Attach the payload.
   console.log("Before attach")
-  await Mam.attach(message.payload, message.address)
+  // payload, address, depth, weight (14 main, 9 test) - https://github.com/iotaledger/mam.client.js
+  await Mam.attach(message.payload, message.address, 3, 9)
   console.log("After attach")
   console.log('Root: ', message.root)
   console.log('Address: ', message.address)

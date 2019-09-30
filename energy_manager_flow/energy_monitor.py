@@ -38,9 +38,11 @@ class EnergyMonitor(object):
                     "type": "generated",
                     "token": self.community_token
                     }
-            
+            # start = time.time()
             response = requests.get("http://localhost:3000",
                                     params={"message": str(data)})
+            # end = time.time()
+            # print("Time for MAM transaction: %f" % (end - start))
             response = response.json()
             msg_root = response['root']
             data.update({'mam_address': msg_root})
