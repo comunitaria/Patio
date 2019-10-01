@@ -53,6 +53,9 @@ def save_energy_action(request):
         gen_obj.save()
     else:
         unit_price = community_info.in_community_energy_price
+
+        # unit_price (W/h) divided by 3600 seconds and multiplied by 
+        # 5 (size of the interval we chose to send data from SCB)
         price = (float(unit_price)/3600) * 5 * float(amount)
         user_comm = None
         if 'neighbour' in sensor_id:
