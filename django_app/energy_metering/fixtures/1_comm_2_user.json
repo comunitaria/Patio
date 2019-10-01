@@ -1,0 +1,4262 @@
+[
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$Hmg8ceVi842S$bgnWKZP2mFsHRtTIr5Jx6assETHlKBSbiOV8cy3tVdo=",
+        "last_login": "2019-09-17T15:59:53.138Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "a@a.aaa",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-08-13T14:18:37.253Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$B0JgOFpRIkcR$oo/G5yv8drjzPcsYyQLxd4qv5HNdN1+CiSgRT0nmd5c=",
+        "last_login": "2019-09-17T22:21:25.606Z",
+        "is_superuser": false,
+        "username": "vecino1",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-09-17T21:51:02.719Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$SobofArpCoG6$W7MtYLRY5hHjv8ag0hLXMtEKMVoOewYwE6spFLKEXKM=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "vecino2",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-09-17T22:15:38.439Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "hcr826i4axvwk7nuylavynrvxio2z0mp",
+    "fields": {
+        "session_data": "NTFhYTNlNjg2YjgwOWFlOTQxNTE3MGYxODljNGQ3MzA4YjBjMWI2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI4NzMxZTdiODE4MzRjNDVlZWY3N2U3ZTFhMjBkMDUzNmI3NzJhYTA4In0=",
+        "expire_date": "2019-10-01T15:59:53.155Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "hftum42ps2zvfkcnkh5qo7zneg2y57ca",
+    "fields": {
+        "session_data": "NTFhYTNlNjg2YjgwOWFlOTQxNTE3MGYxODljNGQ3MzA4YjBjMWI2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI4NzMxZTdiODE4MzRjNDVlZWY3N2U3ZTFhMjBkMDUzNmI3NzJhYTA4In0=",
+        "expire_date": "2019-08-27T14:19:41.123Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "iyk687za997djr88g7ajsmz47q2gu0s9",
+    "fields": {
+        "session_data": "Y2JiYjI3ZGNhNDE1ZDk3OTYzMzY2MjU3MGZiYWI2OTk4M2M4NzUwYzp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiMmE3NDdiMjQ0ZTZkZmEzMDk2YWZmMTlhNzUzYmFiMTU1ZGI2MmQ2In0=",
+        "expire_date": "2019-10-01T22:21:25.610Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "lgrkzudhg2zed5kzrj483x7hqabt60mq",
+    "fields": {
+        "session_data": "Y2JiYjI3ZGNhNDE1ZDk3OTYzMzY2MjU3MGZiYWI2OTk4M2M4NzUwYzp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiMmE3NDdiMjQ0ZTZkZmEzMDk2YWZmMTlhNzUzYmFiMTU1ZGI2MmQ2In0=",
+        "expire_date": "2019-10-11T14:35:55.728Z"
+    }
+},
+{
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+        "domain": "example.com",
+        "name": "example.com"
+    }
+},
+{
+    "model": "comunitaria.community",
+    "pk": 1,
+    "fields": {
+        "state": 0,
+        "activated_dt": null,
+        "nif": "nif 123",
+        "construction_year": 0,
+        "homes_count": 0,
+        "stores_count": 0,
+        "garages_count": 0,
+        "deposits_count": 0,
+        "bank_account": "ES5600810265930001825392",
+        "bank_name": "",
+        "community_name": "Comunidad 1",
+        "community_address": "calle 123",
+        "form_data": null,
+        "property_number": null,
+        "user_bank": "",
+        "pin_bank": "",
+        "managed_by_comunitaria": false
+    }
+},
+{
+    "model": "comunitaria.usercommunity",
+    "pk": 1,
+    "fields": {
+        "user": 2,
+        "date_created": "2019-09-17T21:51:32.867Z",
+        "community": 1,
+        "president": false,
+        "secretary": false,
+        "administrator": false,
+        "doorman": false,
+        "handyman": false,
+        "apartment": "a",
+        "percent_ownership": "0.0000",
+        "percent_pay": "0.0000",
+        "phone_1": "a",
+        "phone_2": null,
+        "bank_account": "a",
+        "state": "LV",
+        "garage": "a",
+        "deposit": "a",
+        "is_active": true,
+        "is_viewer": false
+    }
+},
+{
+    "model": "comunitaria.usercommunity",
+    "pk": 2,
+    "fields": {
+        "user": 3,
+        "date_created": "2019-09-17T22:16:19.914Z",
+        "community": 1,
+        "president": false,
+        "secretary": false,
+        "administrator": true,
+        "doorman": false,
+        "handyman": false,
+        "apartment": "a",
+        "percent_ownership": "0.0000",
+        "percent_pay": "0.0000",
+        "phone_1": "a",
+        "phone_2": null,
+        "bank_account": "a",
+        "state": "LV",
+        "garage": "a",
+        "deposit": "a",
+        "is_active": true,
+        "is_viewer": false
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 106,
+    "fields": {
+        "date": "2019-07-17T00:00:00Z",
+        "actual_money": "6063.69",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "6063.69",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 107,
+    "fields": {
+        "date": "2019-07-17T00:00:00Z",
+        "actual_money": "6252.29",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "6252.29",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 108,
+    "fields": {
+        "date": "2019-07-17T00:00:00Z",
+        "actual_money": "6252.10",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "6252.10",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 109,
+    "fields": {
+        "date": "2019-07-17T00:00:00Z",
+        "actual_money": "6252.06",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "6252.06",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 110,
+    "fields": {
+        "date": "2019-07-18T00:00:00Z",
+        "actual_money": "6250.56",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "6250.56",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 111,
+    "fields": {
+        "date": "2019-07-30T00:00:00Z",
+        "actual_money": "6157.28",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "6157.28",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 112,
+    "fields": {
+        "date": "2019-07-31T00:00:00Z",
+        "actual_money": "5766.16",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "5766.16",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 113,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "actual_money": "5676.16",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "5676.16",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 114,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "actual_money": "5673.16",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "5673.16",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 115,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "actual_money": "5672.41",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "5672.41",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 116,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "actual_money": "5671.86",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "5671.86",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 117,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "actual_money": "6271.86",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "6271.86",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 118,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "actual_money": "7720.46",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "7720.46",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 119,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "actual_money": "7719.01",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "7719.01",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 120,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "actual_money": "7718.71",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "7718.71",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 121,
+    "fields": {
+        "date": "2019-08-07T00:00:00Z",
+        "actual_money": "7440.11",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "7440.11",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 122,
+    "fields": {
+        "date": "2019-08-07T00:00:00Z",
+        "actual_money": "7431.11",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "7431.11",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 123,
+    "fields": {
+        "date": "2019-08-07T00:00:00Z",
+        "actual_money": "7428.87",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "7428.87",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 124,
+    "fields": {
+        "date": "2019-08-07T00:00:00Z",
+        "actual_money": "7427.22",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "7427.22",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 125,
+    "fields": {
+        "date": "2019-08-08T00:00:00Z",
+        "actual_money": "7335.26",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "7335.26",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.balance",
+    "pk": 126,
+    "fields": {
+        "date": "2019-08-12T00:00:00Z",
+        "actual_money": "7272.49",
+        "pending_income": "0.00",
+        "pending_payments": "0.00",
+        "balance": "7272.49",
+        "community": 1
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 101,
+    "fields": {
+        "date": "2019-07-17T00:00:00Z",
+        "type": "I",
+        "concept": "Remesa recibos c.p. virgen de la fuensanta n 1",
+        "amount": "188.60",
+        "balance": "6252.29",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 102,
+    "fields": {
+        "date": "2019-07-17T00:00:00Z",
+        "type": "O",
+        "concept": "Comisiones .",
+        "amount": "0.19",
+        "balance": "6252.10",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 103,
+    "fields": {
+        "date": "2019-07-17T00:00:00Z",
+        "type": "O",
+        "concept": "Impuesto sobre comision .",
+        "amount": "0.04",
+        "balance": "6252.06",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 104,
+    "fields": {
+        "date": "2019-07-18T00:00:00Z",
+        "type": "O",
+        "concept": "Adeudo recibo elenco administracion, s.l.",
+        "amount": "1.50",
+        "balance": "6250.56",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 105,
+    "fields": {
+        "date": "2019-07-30T00:00:00Z",
+        "type": "O",
+        "concept": "Adeudo recibo elenco administracion, s.l.",
+        "amount": "93.28",
+        "balance": "6157.28",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 106,
+    "fields": {
+        "date": "2019-07-31T00:00:00Z",
+        "type": "O",
+        "concept": "Adeudo recibo servicios integrales cuatro vientos, sl",
+        "amount": "391.12",
+        "balance": "5766.16",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 107,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "type": "O",
+        "concept": "Impagado recibos domicil. sepa devolucion recibo",
+        "amount": "90.00",
+        "balance": "5676.16",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 108,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "type": "O",
+        "concept": "Comisiones gastos gest. dev.",
+        "amount": "3.00",
+        "balance": "5673.16",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 109,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "type": "O",
+        "concept": "Impuesto sobre comision iva s /comis. dev.",
+        "amount": "0.75",
+        "balance": "5672.41",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 110,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "type": "O",
+        "concept": "Varios gastos correo dev",
+        "amount": "0.55",
+        "balance": "5671.86",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 111,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "type": "I",
+        "concept": "Transferencia elena valencia medina",
+        "amount": "600.00",
+        "balance": "6271.86",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 112,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "type": "I",
+        "concept": "Remesa recibos c.p. virgen de la fuensanta n 1",
+        "amount": "1448.60",
+        "balance": "7720.46",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 113,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "type": "O",
+        "concept": "Comisiones .",
+        "amount": "1.45",
+        "balance": "7719.01",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 114,
+    "fields": {
+        "date": "2019-08-02T00:00:00Z",
+        "type": "O",
+        "concept": "Impuesto sobre comision .",
+        "amount": "0.30",
+        "balance": "7718.71",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 115,
+    "fields": {
+        "date": "2019-08-07T00:00:00Z",
+        "type": "O",
+        "concept": "Impagado recibos domicil. sepa devolucion recibo",
+        "amount": "278.60",
+        "balance": "7440.11",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 116,
+    "fields": {
+        "date": "2019-08-07T00:00:00Z",
+        "type": "O",
+        "concept": "Comisiones gastos gest. dev.",
+        "amount": "9.00",
+        "balance": "7431.11",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 117,
+    "fields": {
+        "date": "2019-08-07T00:00:00Z",
+        "type": "O",
+        "concept": "Impuesto sobre comision iva s /comis. dev.",
+        "amount": "2.24",
+        "balance": "7428.87",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 118,
+    "fields": {
+        "date": "2019-08-07T00:00:00Z",
+        "type": "O",
+        "concept": "Varios gastos correo dev",
+        "amount": "1.65",
+        "balance": "7427.22",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 119,
+    "fields": {
+        "date": "2019-08-08T00:00:00Z",
+        "type": "O",
+        "concept": "Adeudo recibo al-andalus mantenimiento de ascensores s",
+        "amount": "91.96",
+        "balance": "7335.26",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "comunitaria.transaction",
+    "pk": 120,
+    "fields": {
+        "date": "2019-08-12T00:00:00Z",
+        "type": "O",
+        "concept": "Electricidad endesa energia xxi, slu. factura de electr",
+        "amount": "62.77",
+        "balance": "7272.49",
+        "community": 1,
+        "other": null,
+        "other_string": null
+    }
+},
+{
+    "model": "energy_metering.communityenergyinfo",
+    "pk": 1,
+    "fields": {
+        "community": 1,
+        "apitoshi_apikey": "6ac7fc86-cf70-40ea-840f-fa7b4d2d7ef0",
+        "invoice_self_consumption": false,
+        "in_community_energy_price": "14.00",
+        "ex_community_energy_price": "15.00",
+        "token": "c78760cf-7716-4045-8d30-186821d9c8f5"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2019-08-13T14:21:03.173Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "1",
+        "object_repr": "Community: None, ",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2019-08-13T14:21:24.739Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "1",
+        "object_repr": "Community: calle 123, ",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"community_name\", \"community_address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.096Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "20",
+        "object_repr": " - 2019-08-12 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.099Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "19",
+        "object_repr": " - 2019-08-08 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.103Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "18",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.105Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "17",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.107Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "16",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.110Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "15",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.112Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "14",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.114Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "13",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.117Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "12",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.119Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "11",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.121Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "10",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.123Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "9",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.126Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "8",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.129Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "7",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.131Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "6",
+        "object_repr": " - 2019-07-31 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.133Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "5",
+        "object_repr": " - 2019-07-30 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.135Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "4",
+        "object_repr": " - 2019-07-18 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.137Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "3",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.139Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "2",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2019-08-13T14:34:02.142Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "1",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.771Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "21",
+        "object_repr": " - 2019-08-12 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.774Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "20",
+        "object_repr": " - 2019-08-08 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.777Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "19",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.779Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "18",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.782Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "17",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.785Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "16",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.787Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "15",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.791Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "14",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.793Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "13",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.795Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "12",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.798Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "11",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.801Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "10",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.804Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "9",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.805Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "8",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.808Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "7",
+        "object_repr": " - 2019-07-31 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.810Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "6",
+        "object_repr": " - 2019-07-30 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.812Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "5",
+        "object_repr": " - 2019-07-18 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.813Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "4",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.816Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "3",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.818Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2019-08-13T14:34:09.821Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "1",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.566Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "42",
+        "object_repr": " - 2019-08-12 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.571Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "41",
+        "object_repr": " - 2019-08-08 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.573Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "40",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.576Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "39",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.579Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "38",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.581Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "37",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.584Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "36",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.585Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "35",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.587Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "34",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.589Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "33",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.592Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "32",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.595Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "31",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.597Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "30",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.599Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "29",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.601Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "28",
+        "object_repr": " - 2019-07-31 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.603Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "27",
+        "object_repr": " - 2019-07-30 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.606Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "26",
+        "object_repr": " - 2019-07-18 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.609Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "25",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.611Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "24",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.612Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "23",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+        "action_time": "2019-08-13T14:36:13.614Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "22",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.400Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "40",
+        "object_repr": " - 2019-08-12 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.404Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "39",
+        "object_repr": " - 2019-08-08 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.407Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "38",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.410Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "37",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.412Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "36",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.414Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "35",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.416Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "34",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.419Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "33",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.422Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "32",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.425Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "31",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.428Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "30",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.433Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "29",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.435Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "28",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.438Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "27",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.440Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "26",
+        "object_repr": " - 2019-07-31 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.442Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "25",
+        "object_repr": " - 2019-07-30 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.445Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "24",
+        "object_repr": " - 2019-07-18 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.447Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "23",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.449Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "22",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2019-08-13T14:36:24.451Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "21",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.229Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "63",
+        "object_repr": " - 2019-08-12 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.235Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "62",
+        "object_repr": " - 2019-08-08 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.238Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "61",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.243Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "60",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 89,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.245Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "59",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 90,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.248Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "58",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 91,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.252Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "57",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 92,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.256Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "56",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 93,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.258Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "55",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 94,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.260Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "54",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 95,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.263Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "53",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 96,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.265Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "52",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 97,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.267Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "51",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 98,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.270Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "50",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 99,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.274Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "49",
+        "object_repr": " - 2019-07-31 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 100,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.277Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "48",
+        "object_repr": " - 2019-07-30 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 101,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.279Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "47",
+        "object_repr": " - 2019-07-18 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 102,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.282Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "46",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 103,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.285Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "45",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 104,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.289Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "44",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 105,
+    "fields": {
+        "action_time": "2019-08-13T14:48:32.293Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "43",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 106,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.771Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "60",
+        "object_repr": " - 2019-08-12 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 107,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.775Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "59",
+        "object_repr": " - 2019-08-08 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 108,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.778Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "58",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 109,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.780Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "57",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 110,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.783Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "56",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 111,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.785Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "55",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 112,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.787Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "54",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 113,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.790Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "53",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 114,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.792Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "52",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 115,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.794Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "51",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 116,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.797Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "50",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 117,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.799Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "49",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 118,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.802Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "48",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 119,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.804Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "47",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 120,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.807Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "46",
+        "object_repr": " - 2019-07-31 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 121,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.809Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "45",
+        "object_repr": " - 2019-07-30 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 122,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.811Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "44",
+        "object_repr": " - 2019-07-18 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 123,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.813Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "43",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 124,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.815Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "42",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 125,
+    "fields": {
+        "action_time": "2019-08-13T14:48:38.817Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "41",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 126,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.770Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "84",
+        "object_repr": " - 2019-08-12 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 127,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.777Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "83",
+        "object_repr": " - 2019-08-08 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 128,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.780Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "82",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 129,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.783Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "81",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 130,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.790Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "80",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 131,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.792Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "79",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 132,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.794Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "78",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 133,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.797Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "77",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 134,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.800Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "76",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 135,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.802Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "75",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 136,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.804Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "74",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 137,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.807Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "73",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 138,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.810Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "72",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 139,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.811Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "71",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 140,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.814Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "70",
+        "object_repr": " - 2019-07-31 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 141,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.816Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "69",
+        "object_repr": " - 2019-07-30 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 142,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.818Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "68",
+        "object_repr": " - 2019-07-18 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 143,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.820Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "67",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 144,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.822Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "66",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 145,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.823Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "65",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 146,
+    "fields": {
+        "action_time": "2019-08-13T15:04:14.825Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "64",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 147,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.231Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "80",
+        "object_repr": " - 2019-08-12 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 148,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.236Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "79",
+        "object_repr": " - 2019-08-08 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 149,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.238Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "78",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 150,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.242Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "77",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 151,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.244Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "76",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 152,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.246Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "75",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 153,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.250Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "74",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 154,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.254Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "73",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 155,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.256Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "72",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 156,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.259Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "71",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 157,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.262Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "70",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 158,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.264Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "69",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 159,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.266Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "68",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 160,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.268Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "67",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 161,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.271Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "66",
+        "object_repr": " - 2019-07-31 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 162,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.273Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "65",
+        "object_repr": " - 2019-07-30 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 163,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.275Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "64",
+        "object_repr": " - 2019-07-18 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 164,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.276Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "63",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 165,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.278Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "62",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 166,
+    "fields": {
+        "action_time": "2019-08-13T15:04:21.280Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "61",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 167,
+    "fields": {
+        "action_time": "2019-08-13T15:24:57.961Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "100",
+        "object_repr": " - 2019-08-12 00:00:00+00:00 - -62.77 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 168,
+    "fields": {
+        "action_time": "2019-08-13T15:24:57.969Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "99",
+        "object_repr": " - 2019-08-08 00:00:00+00:00 - -91.96 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 169,
+    "fields": {
+        "action_time": "2019-08-13T15:24:57.973Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "98",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 - -1.65 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 170,
+    "fields": {
+        "action_time": "2019-08-13T15:24:57.977Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "97",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 - -2.24 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 171,
+    "fields": {
+        "action_time": "2019-08-13T15:24:57.979Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "96",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 - -9.00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 172,
+    "fields": {
+        "action_time": "2019-08-13T15:24:57.982Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "95",
+        "object_repr": " - 2019-08-07 00:00:00+00:00 - -278.60 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 173,
+    "fields": {
+        "action_time": "2019-08-13T15:24:57.984Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "94",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 - -0.30 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 174,
+    "fields": {
+        "action_time": "2019-08-13T15:24:57.985Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "93",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 - -1.45 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 175,
+    "fields": {
+        "action_time": "2019-08-13T15:24:57.989Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "92",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 - 1448.60 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 176,
+    "fields": {
+        "action_time": "2019-08-13T15:24:57.991Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "91",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 - 600.00 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 177,
+    "fields": {
+        "action_time": "2019-08-13T15:24:57.994Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "90",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 - -0.55 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 178,
+    "fields": {
+        "action_time": "2019-08-13T15:24:57.996Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "89",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 - -0.75 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 179,
+    "fields": {
+        "action_time": "2019-08-13T15:24:58Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "88",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 - -3.00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 180,
+    "fields": {
+        "action_time": "2019-08-13T15:24:58.002Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "87",
+        "object_repr": " - 2019-08-02 00:00:00+00:00 - -90.00 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 181,
+    "fields": {
+        "action_time": "2019-08-13T15:24:58.006Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "86",
+        "object_repr": " - 2019-07-31 00:00:00+00:00 - -391.12 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 182,
+    "fields": {
+        "action_time": "2019-08-13T15:24:58.009Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "85",
+        "object_repr": " - 2019-07-30 00:00:00+00:00 - -93.28 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 183,
+    "fields": {
+        "action_time": "2019-08-13T15:24:58.011Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "84",
+        "object_repr": " - 2019-07-18 00:00:00+00:00 - -1.50 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 184,
+    "fields": {
+        "action_time": "2019-08-13T15:24:58.013Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "83",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 - -0.04 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 185,
+    "fields": {
+        "action_time": "2019-08-13T15:24:58.017Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "82",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 - -0.19 (O)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 186,
+    "fields": {
+        "action_time": "2019-08-13T15:24:58.018Z",
+        "user": 1,
+        "content_type": 34,
+        "object_id": "81",
+        "object_repr": " - 2019-07-17 00:00:00+00:00 - 188.60 (I)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 187,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.488Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "105",
+        "object_repr": " - 9329.29 - 2019-08-12 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 188,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.492Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "104",
+        "object_repr": " - 9266.52 - 2019-08-08 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 189,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.495Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "103",
+        "object_repr": " - 9174.56 - 2019-08-07 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 190,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.497Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "102",
+        "object_repr": " - 9172.91 - 2019-08-07 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 191,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.502Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "101",
+        "object_repr": " - 9170.67 - 2019-08-07 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 192,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.504Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "100",
+        "object_repr": " - 9161.67 - 2019-08-07 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 193,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.506Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "99",
+        "object_repr": " - 8883.07 - 2019-08-02 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 194,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.509Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "98",
+        "object_repr": " - 8882.77 - 2019-08-02 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 195,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.511Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "97",
+        "object_repr": " - 8881.32 - 2019-08-02 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 196,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.514Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "96",
+        "object_repr": " - 7432.72 - 2019-08-02 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 197,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.516Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "95",
+        "object_repr": " - 6832.72 - 2019-08-02 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 198,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.519Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "94",
+        "object_repr": " - 6832.17 - 2019-08-02 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 199,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.521Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "93",
+        "object_repr": " - 6831.42 - 2019-08-02 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 200,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.523Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "92",
+        "object_repr": " - 6828.42 - 2019-08-02 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 201,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.525Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "91",
+        "object_repr": " - 6738.42 - 2019-07-31 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 202,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.527Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "90",
+        "object_repr": " - 6347.30 - 2019-07-30 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 203,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.529Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "89",
+        "object_repr": " - 6254.02 - 2019-07-18 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 204,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.531Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "88",
+        "object_repr": " - 6252.52 - 2019-07-17 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 205,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.533Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "87",
+        "object_repr": " - 6252.48 - 2019-07-17 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 206,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.535Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "86",
+        "object_repr": " - 6252.29 - 2019-07-17 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 207,
+    "fields": {
+        "action_time": "2019-08-13T15:25:05.537Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "85",
+        "object_repr": " - 6063.69 - 2019-07-17 00:00:00+00:00",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 208,
+    "fields": {
+        "action_time": "2019-09-17T16:54:47.265Z",
+        "user": 1,
+        "content_type": 81,
+        "object_id": "1",
+        "object_repr": "",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 209,
+    "fields": {
+        "action_time": "2019-09-17T16:55:17.016Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "1",
+        "object_repr": "Community: calle 123, nif 123",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"nif\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 210,
+    "fields": {
+        "action_time": "2019-09-17T16:55:19.304Z",
+        "user": 1,
+        "content_type": 81,
+        "object_id": "1",
+        "object_repr": "nif 123",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 211,
+    "fields": {
+        "action_time": "2019-09-17T21:51:02.900Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": "vecino1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 212,
+    "fields": {
+        "action_time": "2019-09-17T21:51:32.873Z",
+        "user": 1,
+        "content_type": 35,
+        "object_id": "1",
+        "object_repr": "vecino1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 213,
+    "fields": {
+        "action_time": "2019-09-17T22:12:48.736Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "1",
+        "object_repr": "vecino1 - 2.000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 214,
+    "fields": {
+        "action_time": "2019-09-17T22:13:08.319Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "1",
+        "object_repr": "nif 123 - 4.000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 215,
+    "fields": {
+        "action_time": "2019-09-17T22:15:38.588Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "vecino2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 216,
+    "fields": {
+        "action_time": "2019-09-17T22:16:19.915Z",
+        "user": 1,
+        "content_type": 35,
+        "object_id": "2",
+        "object_repr": "vecino2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 217,
+    "fields": {
+        "action_time": "2019-09-17T23:02:55.324Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "3",
+        "object_repr": "vecino2 - 2.000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 218,
+    "fields": {
+        "action_time": "2019-09-17T23:02:55.327Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "2",
+        "object_repr": "vecino1 - 2.000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 219,
+    "fields": {
+        "action_time": "2019-09-17T23:03:05.961Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "2",
+        "object_repr": "nif 123 - 4.000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 220,
+    "fields": {
+        "action_time": "2019-09-18T16:30:09.157Z",
+        "user": 1,
+        "content_type": 82,
+        "object_id": "3",
+        "object_repr": "Energy invoice from Community calle 123 - 2019-09-18 16:27:19.373431+00:00 (0.02)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 221,
+    "fields": {
+        "action_time": "2019-09-18T16:30:09.172Z",
+        "user": 1,
+        "content_type": 82,
+        "object_id": "2",
+        "object_repr": "Energy invoice from Community calle 123 - 2019-09-18 16:27:11.027399+00:00 (0.02)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 222,
+    "fields": {
+        "action_time": "2019-09-18T16:30:09.174Z",
+        "user": 1,
+        "content_type": 82,
+        "object_id": "1",
+        "object_repr": "Energy invoice from Community calle 123 - 2019-09-18 16:25:53.236395+00:00 (0.02)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 223,
+    "fields": {
+        "action_time": "2019-09-18T16:30:25.809Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "5",
+        "object_repr": "None - 2.000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 224,
+    "fields": {
+        "action_time": "2019-09-18T16:32:22.825Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "6",
+        "object_repr": "None - 0.350 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 225,
+    "fields": {
+        "action_time": "2019-09-18T16:32:22.830Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "4",
+        "object_repr": "vecino1 - 2.000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 226,
+    "fields": {
+        "action_time": "2019-09-18T16:40:07.465Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "8",
+        "object_repr": "None - 0.3500 ",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"price\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 227,
+    "fields": {
+        "action_time": "2019-09-27T14:49:03.249Z",
+        "user": 1,
+        "content_type": 81,
+        "object_id": "1",
+        "object_repr": "nif 123",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 228,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.201Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "32",
+        "object_repr": "vecino1 - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 229,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.206Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "31",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 230,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.209Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "30",
+        "object_repr": "vecino1 - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 231,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.212Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "29",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 232,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.215Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "28",
+        "object_repr": "vecino1 - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 233,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.219Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "27",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 234,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.223Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "26",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 235,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.226Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "25",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 236,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.229Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "24",
+        "object_repr": "vecino1 - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 237,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.232Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "23",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 238,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.235Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "22",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 239,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.238Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "21",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 240,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.240Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "20",
+        "object_repr": "vecino1 - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 241,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.242Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "19",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 242,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.245Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "18",
+        "object_repr": "vecino1 - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 243,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.246Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "17",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 244,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.248Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "16",
+        "object_repr": "vecino1 - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 245,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.250Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "15",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 246,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.252Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "14",
+        "object_repr": "vecino1 - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 247,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.255Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "13",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 248,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.256Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "12",
+        "object_repr": "vecino1 - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 249,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.258Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "11",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 250,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.261Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "10",
+        "object_repr": "vecino1 - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 251,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.264Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "9",
+        "object_repr": "None - 0.5000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 252,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.267Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "8",
+        "object_repr": "None - 0.3500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 253,
+    "fields": {
+        "action_time": "2019-09-27T14:49:14.270Z",
+        "user": 1,
+        "content_type": 78,
+        "object_id": "7",
+        "object_repr": "vecino1 - 2.0000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 254,
+    "fields": {
+        "action_time": "2019-09-27T14:49:23.710Z",
+        "user": 1,
+        "content_type": 82,
+        "object_id": "5",
+        "object_repr": "Energy invoice from Community calle 123 - 2019-09-18 16:42:58.344664+00:00 (0.04)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 255,
+    "fields": {
+        "action_time": "2019-09-27T14:49:23.715Z",
+        "user": 1,
+        "content_type": 82,
+        "object_id": "4",
+        "object_repr": "Energy invoice from Community calle 123 - 2019-09-18 16:34:54.753935+00:00 (0.02)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 256,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.056Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "19",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 257,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.063Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "18",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 258,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.066Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "17",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 259,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.069Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "16",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 260,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.072Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "15",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 261,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.074Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "14",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 262,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.077Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "13",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 263,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.080Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "12",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 264,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.083Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "11",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 265,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.086Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "10",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 266,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.090Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "9",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 267,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.095Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "8",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 268,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.098Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "7",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 269,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.100Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "6",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 270,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.102Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "5",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 271,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.104Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "4",
+        "object_repr": "nif 123 - 0.500 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 272,
+    "fields": {
+        "action_time": "2019-09-27T14:49:37.106Z",
+        "user": 1,
+        "content_type": 79,
+        "object_id": "3",
+        "object_repr": "nif 123 - 4.000 ",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 273,
+    "fields": {
+        "action_time": "2019-09-27T15:26:21.621Z",
+        "user": 1,
+        "content_type": 81,
+        "object_id": "1",
+        "object_repr": "nif 123",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"in_community_energy_price\", \"ex_community_energy_price\"]}}]"
+    }
+}
+]
