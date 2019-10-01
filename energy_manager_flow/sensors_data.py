@@ -7,7 +7,8 @@ import config
 # In the case of 'neighbour_X', X is the UserCommunity ID from backend
 SENSORS = {"generation": {"generation_1": ""},
            "consumption": {"common_place_1": "",  # value should be the addr of the sensor
-                           "neighbour_1": ""
+                           # 4 is the id of demo usercommunity for Community 1
+                           "neighbour_4": ""
                            },
            }
 

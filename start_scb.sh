@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Requirements: Python3.7 and 'apt install python3-venv'
+# Requirements: Python3.7 and 'apt install python3-venv', npm
 
 # exit when any command fails
 set -e
@@ -18,6 +18,7 @@ source "${VENV_DIR}/bin/activate"
 trap 'kill $BGPID; exit' TERM
 
 cd ./mam_client
+npm install
 ./node_modules/.bin/ts-node src/publisher.ts &
 BGPID=$!
 
