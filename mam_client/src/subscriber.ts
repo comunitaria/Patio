@@ -8,6 +8,7 @@ declare var process: {
 
 const Mam = require('@iota/mam'); // require('./mam.client.js');
 const IOTA = require('iota.lib.js');
+const { asciiToTrytes, trytesToAscii } = require('@iota/converter')
 const express = require('express');
 
 var iota = new IOTA({ provider: `https://nodes.devnet.iota.org` })
@@ -20,8 +21,12 @@ console.log('Listening to root:', root);
 var mamState = Mam.init(iota)
 
 const execute = async () => {
-  const resp = await Mam.fetch(root, 'public');
-  console.log(resp);
+    const resp = await Mam.fetch(root, 'public');
+    try {
+      resp.messages.forEach((message: any) => console.log(trytesToAscii(message)));
+    } catch (e) {
+        console.log(e)
+    }
 
   if (resp.nextRoot) {
     root = resp.nextRoot;

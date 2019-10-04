@@ -5,11 +5,13 @@ import config
 from time import sleep
 from ina219 import INA219
 
-ina1 = INA219(shunt_ohms=0.1, max_expected_amps = 0.6, address=0x40)
-ina2 = INA219(shunt_ohms=0.1, max_expected_amps = 0.6, address=0x41)
+ina1, ina2 = None, None
+if not config.MOCK_SENSORS:
+    ina1 = INA219(shunt_ohms=0.1, max_expected_amps = 0.6, address=0x40)
+    ina2 = INA219(shunt_ohms=0.1, max_expected_amps = 0.6, address=0x41)
 
-ina1.configure(voltage_range=ina1.RANGE_16V, gain=ina1.GAIN_AUTO, bus_adc=ina1.ADC_128SAMP, shunt_adc=ina1.ADC_128SAMP)
-ina2.configure(voltage_range=ina2.RANGE_16V, gain=ina2.GAIN_AUTO, bus_adc=ina2.ADC_128SAMP, shunt_adc=ina2.ADC_128SAMP)
+    ina1.configure(voltage_range=ina1.RANGE_16V, gain=ina1.GAIN_AUTO, bus_adc=ina1.ADC_128SAMP, shunt_adc=ina1.ADC_128SAMP)
+    ina2.configure(voltage_range=ina2.RANGE_16V, gain=ina2.GAIN_AUTO, bus_adc=ina2.ADC_128SAMP, shunt_adc=ina2.ADC_128SAMP)
 
 # This dict is fixed. But in the future it'll be get from SaaS API to get data
 # for the specific community

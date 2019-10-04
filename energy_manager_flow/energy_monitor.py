@@ -36,16 +36,17 @@ class EnergyMonitor(object):
             data = {"amount": value,  # Amount of generation at this moment
                     "datetime": now,
                     "type": "generated",
-                    "token": self.community_token
+                    "community_unique_id": config.community_unique_id
                     }
             # start = time.time()
             response = requests.get("http://localhost:3000",
-                                    params={"message": str(data)})
+                                    params={"message": json.dumps(data)})
             # end = time.time()
             # print("Time for MAM transaction: %f" % (end - start))
             response = response.json()
             msg_root = response['root']
-            data.update({'mam_address': msg_root})
+            data.update({'mam_address': msg_root,
+                         'token': self.community_token})
 
             # Send data to SaaS
             response = requests.post("%s/energy/save" % config.base_backend_url,
@@ -76,14 +77,15 @@ class EnergyMonitor(object):
                         "datetime": now,
                         "sensor_id": sensor,  # Common places or neighbour id
                         "type": c_type,
-                        "token": self.community_token
+                        "community_unique_id": config.community_unique_id
                         }
 
                 response = requests.get("http://localhost:3000",
-                                        params={"message": str(data)})
+                                        params={"message": json.dumps(data)})
                 response = response.json()
                 msg_root = response['root']
-                data.update({'mam_address': msg_root})
+                data.update({'mam_address': msg_root,
+                             'token': self.community_token})
 
                 # Send data to SaaS
                 response = requests.post("%s/energy/save" % config.base_backend_url,

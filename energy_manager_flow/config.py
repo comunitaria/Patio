@@ -1,3 +1,5 @@
+import hashlib
+
 TESTING_BACK = True
 MOCK_SENSORS = True
 
@@ -10,3 +12,5 @@ else:
 
 # Community 1 token
 community_token = "c78760cf-7716-4045-8d30-186821d9c8f5"
+community_unique_id = hashlib.md5(community_token.encode()).hexdigest()
+

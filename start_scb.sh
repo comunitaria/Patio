@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Requirements: Python3.7 and 'apt install python3-venv', npm
+# Requirements: Python3.7 and 'apt install python3-venv python3-dev', npm
 
 # exit when any command fails
 set -e
