@@ -22,7 +22,7 @@ npm install
 ./node_modules/.bin/ts-node src/publisher.ts &
 BGPID=$!
 
-sleep 5
+sleep 15
 cd ../energy_manager_flow
 python main.py
 
