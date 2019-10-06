@@ -69,7 +69,7 @@ class EnergyMonitor(object):
 
             # Get measures from building and neighbours sensors
             for sensor in sensors_data.SENSORS["consumption"]:
-                value = sensors_data.get_sensor_value(sensor)
+                value = sensors_data.get_sensor_value(sensors_data.SENSORS["consumption"][sensor])
                 if float(value.replace(config.power_unit, '').strip()) <= 0.001:
                     continue
 
