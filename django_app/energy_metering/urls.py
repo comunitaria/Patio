@@ -11,5 +11,7 @@ router.register(r'transaction', api.EnergyTransactionViewSet)
 
 urlpatterns = [
     url(r'^save/?$', api.save_energy_action, name="save_energy_action"),
+    url(r'^manual_invoice/?$', api.manual_invoice_generation,
+        name="manual_invoice_generation"),
     url(r'', include(router.urls)),
 ]

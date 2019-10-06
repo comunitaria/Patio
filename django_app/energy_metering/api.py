@@ -12,6 +12,7 @@ from . import serializers
 from hashlib import md5
 from comunitaria.models import UserCommunity
 from comunitaria.api import check_user_comm_permissions
+from energy_metering.management.commands.generate_energy_invoices import generate_energy_invoices
 from .models import *
 
 
@@ -85,6 +86,30 @@ def get_pending_messages(request):
     return Response({'status': 'ok'})
 
 
+@api_view(['GET'])
+def manual_invoice_generation(request):
+    """
+        Query parameter community and usercommunity are expected
+        /energy/manual_invoice/?community=1&usercommunity=1
+    """
+    community_id = request.query_params.get('community', None)
+    usercomm_id = request.query_params.get('usercommunity', None)
+    allowed, response = check_user_comm_permissions(request, community_id)
+
+    if not allowed:
+        return Response({'status': 'error'})
+
+    usercomm = UserCommunity.objects.filter(id=usercomm_id).first()
+    generate_energy_invoices(community_id=community_id,
+                             usercommunity_id=usercomm_id)
+
+    if usercomm.administrator:
+        generate_energy_invoices(community_id=community_id,
+                                 usercommunity_id=None)
+    
+    return Response({'status': 'ok'})
+
+
 class GeneratedEnergyViewSet(viewsets.ReadOnlyModelViewSet):
     """
         GeneratedEnergy
@@ -117,8 +142,13 @@ class ConsumedEnergyViewSet(viewsets.ReadOnlyModelViewSet):
         community_id = self.request.query_params.get('community', None)
         usercomm_id = self.request.query_params.get('usercommunity', None)
         allowed, response = check_user_comm_permissions(self.request, community_id)
-        if not allowed:
+        
+        usercomm = UserCommunity.objects.filter(id=usercomm_id).first()
+        if not allowed or not usercomm:
             return ConsumedEnergy.objects.none()
+
+        if usercomm.administrator:
+            return ConsumedEnergy.objects.filter(community__id=community_id)
 
         return ConsumedEnergy.objects.filter(community__id=community_id,
                                              user__id__in=[usercomm_id,
@@ -160,4 +190,11 @@ class EnergyInvoiceViewSet(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset(self):
         usercomm_id = self.request.query_params.get('usercommunity', None)
+        if not usercomm_id:
+            return EnergyInvoice.objects.none()
+
+        usercomm = UserCommunity.objects.filter(id=usercomm_id).first()
+        if usercomm.administrator:
+            return EnergyInvoice.objects.filter(payer__community=usercomm.community)
+
         return EnergyInvoice.objects.filter(payer__id=usercomm_id)

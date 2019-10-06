@@ -81,22 +81,43 @@ class EnergyTest(TestCase):
         self.assertTrue(len(answer), 2)
 
         # List of consumption logs for the usercommunity or common places
+        # UserCommunity 2 is also administrator
         response = client.get('/energy/consumed/?community=1&usercommunity=2')
 
         answer = response.json()
-        self.assertTrue(len(answer), 2)
+        self.assertTrue(len(answer), 3)
 
-        generate_energy_invoices()
+        response = client.get('/energy/manual_invoice/?community=1&usercommunity=1')
 
+        time.sleep(2)
         consumption_processed = ConsumedEnergy.objects.filter(processed=True)
+        self.assertTrue(len(consumption_processed), 1)
 
-        self.assertTrue(len(consumption_processed), 3)
-
-        # List of invoices for the usercommunity
+        # List of invoices for the usercommunity 1
         response = client.get('/energy/invoice/?usercommunity=1')
 
         answer = response.json()
         self.assertTrue(len(answer), 1)
+
+        # List invoices for user 2
+        response = client.get('/energy/invoice/?usercommunity=2')
+        answer = response.json()
+
+        # 1 invoice (user 2 (admin) can see user 1's invoice)
+        self.assertTrue(len(answer), 1)
+
+        # Gen invoices for user 2
+        response = client.get('/energy/manual_invoice/?community=1&usercommunity=2')
+
+        consumption_processed = ConsumedEnergy.objects.filter(processed=True)
+        self.assertTrue(len(consumption_processed), 3)
+
+        # List of invoices for the usercommunity 2 (neighbor and administrator)
+        response = client.get('/energy/invoice/?usercommunity=2')
+
+        answer = response.json()
+        # 2 invoices (user 1, and administrator (common place and user 2))
+        self.assertTrue(len(answer), 2)
 
 
     def test_2(self):

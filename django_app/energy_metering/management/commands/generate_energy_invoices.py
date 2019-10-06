@@ -4,15 +4,30 @@ import requests
 from datetime import datetime, timedelta
 from django.utils import timezone
 from django.conf import settings
+from django.db.models import Q
 from comunitaria.models import Community, UserCommunity
 from energy_metering import models
 import time
 
 apitoshi_endpoint = "https://57efa5ynx9.execute-api.eu-west-2.amazonaws.com"
 
-def generate_energy_invoices():
-    transactions_to_invoice = models.EnergyTransaction.objects.filter(invoice=None)
-    consumes_to_invoice = models.ConsumedEnergy.objects.filter(processed=False)
+def generate_energy_invoices(community_id=None, usercommunity_id=None):
+    if not community_id:
+        transactions_to_invoice = models.EnergyTransaction.objects.filter(invoice=None)
+        consumes_to_invoice = models.ConsumedEnergy.objects.filter(processed=False)
+    else:
+        transactions_to_invoice = models.EnergyTransaction.objects.filter(
+                                    # Q(producer_community__id=community_id, invoice=None) |
+                                    Q(consumer_community__id=community_id, invoice=None)
+                                  )
+
+        if usercommunity_id:
+            consumes_to_invoice = models.ConsumedEnergy.objects.filter(processed=False,
+                                                                       user_id=usercommunity_id)
+        else:
+            consumes_to_invoice = models.ConsumedEnergy.objects.filter(processed=False,
+                                                                       community_id=community_id,
+                                                                       user=None)
 
     to_invoice = dict()
 
@@ -35,7 +50,7 @@ def generate_energy_invoices():
         total = sum([elem.price for elem in v])
         apitoshi_key = producer.communityenergyinfo.apitoshi_apikey
         headers = {'Authorization': 'Bearer %s' % apitoshi_key}
-
+        print(total)
         # start = time.time()
         response = requests.post("%s/prod/payments/new" % apitoshi_endpoint,
                                  json={"description": concept,
