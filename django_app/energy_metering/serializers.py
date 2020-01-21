@@ -27,3 +27,8 @@ class EnergyInvoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = EnergyInvoice
         fields = '__all__'
+
+class CPMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CPMessage
+        fields = ('message', 'datetime')

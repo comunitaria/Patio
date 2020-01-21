@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, render
 from django.db.models import Q
+from django.db import transaction
 from rest_framework import viewsets
 from rest_framework.decorators import api_view, permission_classes
 import requests
@@ -198,3 +199,206 @@ class EnergyInvoiceViewSet(viewsets.ReadOnlyModelViewSet):
             return EnergyInvoice.objects.filter(payer__community=usercomm.community)
 
         return EnergyInvoice.objects.filter(payer__id=usercomm_id)
+
+
+# Views for Charge Point - Central System - Supervecina Interaction
+
+@api_view(['GET'])
+@transaction.atomic
+@permission_classes((AllowAny, ))
+def get_CS_pending_messages(request):
+    """
+        Returns pending messages for an OCPP Central System.
+        Messages are related to RemoteStartTransaction, ChangeConfiguration, etc.
+    """
+
+    params = request.GET
+    token = params['token']
+    charge_point_id = params['cp_id']
+
+    central_system = CentralSystem.objects.filter(token=token).first()
+    charge_point = ChargePoint.objects.filter(serial_id=charge_point_id).first()
+    if not central_system or not charge_point:
+        return Response({'status': 'nok',
+                         'error': 'Invalid Central System token or CP id'})
+
+    pending_messages = CPMessage.objects.filter(charge_point=charge_point,
+                                                central_system=central_system,
+                                                sent=False)
+
+    serialized_messages = serializers.CPMessageSerializer(pending_messages, many=True)
+
+    for message in pending_messages:
+        message.sent = True
+        message.save()
+
+    return Response({'status': 'ok', 'messages': serialized_messages.data})
+
+
+@api_view(['POST'])
+@permission_classes((AllowAny, ))
+def save_CP_energy_consumption(request):
+    """
+        Receives data representing a consumption action
+        redirected by the Central System from the Charge Point.
+        Consumption is saved to the consumer (user community)
+        and his community.
+    """
+    params = request.data
+    token = params['token']
+    date = params['datetime']
+    amount = params['amount']  # meter_stop, integer in Wh
+    mam_address = params['mam_address']
+    transaction_id = params.get('transaction_id', '')
+    charge_point_id = params['cp_id']
+
+    charge_point = ChargePoint.objects.filter(serial_id=charge_point_id).first()
+
+    user_comm = None
+
+    if not CentralSystem.objects.filter(token=token).first():
+        return Response({'status': 'nok',
+                         'error': 'Invalid Central System token'})
+
+    ev_transaction = EVTransaction.objects.filter(id=transaction_id).first()
+    if not ev_transaction:
+        return Response({'status': 'nok',
+                         'error': 'Consumer is not identified'})
+
+    user_comm = ev_transaction.consumer
+    unit_price = user_comm.community.communityenergyinfo.in_community_energy_price
+
+    # unit_price (W/h) multiplied by meter_stop amount
+    price = float(unit_price) * float(amount)
+
+    consume_obj = ConsumedEnergy(community=user_comm.community,
+                                    energy_amount=amount,
+                                    time=date,
+                                    mam_address=mam_address,
+                                    price=price,
+                                    user=user_comm)
+    consume_obj.save()
+
+    ev_transaction.data = consume_obj
+    ev_transaction.charge_point = charge_point
+    ev_transaction.save()
+    
+    return Response({'status': 'ok'})
+
+
+@api_view(['POST'])
+@permission_classes((AllowAny, ))
+def update_CP_status(request):
+    """
+        Updates status for a given Charge Point after CS received a StatusNotification.
+    """
+    params = request.data
+    token = params['token']
+    cp_id = params['cp_id']
+    status = params['status']
+    error_code = params['error_code']
+
+    if not CentralSystem.objects.filter(token=token).first():
+        return Response({'status': 'nok',
+                         'error': 'Invalid Central System token'})
+
+    charge_point = ChargePoint.objects.filter(serial_id=cp_id).first()
+    if not charge_point:
+        return Response({'status': 'nok',
+                         'error': 'Charge Point is not identified'})
+
+    charge_point.status = status
+    charge_point.error_code = error_code
+    charge_point.save()
+    
+    return Response({'status': 'ok'})
+
+
+@api_view(['POST'])
+@permission_classes((AllowAny, ))
+def authorize_CP(request):
+    """
+        Checks if a given CP serial id is registered.
+    """
+    params = request.data
+    token = params['token']
+    cp_id = params['cp_id']
+
+    if not CentralSystem.objects.filter(token=token).first():
+        return Response({'status': 'nok',
+                         'error': 'Invalid Central System token'})
+
+    charge_point = ChargePoint.objects.filter(serial_id=cp_id).first()
+    if not charge_point:
+        return Response({'status': 'nok',
+                         'error': 'Charge Point is not identified'})    
+    return Response({'status': 'ok'})
+
+
+@api_view(['POST'])
+@permission_classes((AllowAny, ))
+def new_transaction(request):
+    """
+        Register a new EV transaction and generate a unique transaction id
+        for OCPP compliance
+    """
+    params = request.data
+    token = params['token']
+    user_id = params['user_id']
+
+    user_comm = UserCommunity.objects.filter(id=user_id).first()
+
+    if not CentralSystem.objects.filter(token=token).first() or not user_comm:
+        return Response({'status': 'nok',
+                         'error': 'Invalid Central System or User ID'})
+
+    transaction = EVTransaction(consumer=user_comm)
+    transaction.save()
+
+    return Response({'status': 'ok', 'transaction_id': transaction.id})
+
+
+@api_view(['POST'])
+@permission_classes((AllowAny, ))
+def authorize_user(request):
+    """
+        Check if a given user id is registered
+    """
+    params = request.data
+    token = params['token']
+    user_id = params['user_id']
+    cp_id = params['cp_id']
+
+    user_comm = UserCommunity.objects.filter(id=user_id).first()
+    charge_point = ChargePoint.objects.filter(serial_id=cp_id).first()
+    central_system = CentralSystem.objects.filter(token=token).first()
+
+    if not central_system or not user_comm or not charge_point:
+        return Response({'status': 'nok',
+                         'error': 'Invalid Central System or User ID'})
+
+    if charge_point not in user_comm.community.authorized_chargepoints.all():
+        return Response({'status': 'nok',
+                         'error': 'User not authorized for this Charge Point'})
+
+    return Response({'status': 'ok'})
+
+
+def get_consumptions_list(user):
+    """
+        Retrieves the last electric consumptions for a user in all
+        his communities.
+    """
+    response = ""
+    usercomms = user.communities.all()
+    for usercomm in usercomms:
+        consumptions = ConsumedEnergy.objects.filter(user=usercomm).order_by('-time')[:10]
+        # serialized = serializers.ConsumedEnergySerializer(consumptions, many=True)
+        # time, energy_amount, price, community.community_address
+        for consumption in consumptions:
+            response += "%s - %s - %s: %s\n" % (consumption.community.community_address,
+                                            consumption.time,
+                                            consumption.energy_amount,
+                                            consumption.price)
+
+    return response

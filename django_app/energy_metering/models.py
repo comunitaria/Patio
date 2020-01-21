@@ -1,6 +1,7 @@
 from django.db import models
 from comunitaria.models import Community, UserCommunity
 import uuid
+import time
 
 
 class GeneratedEnergy(models.Model):
@@ -113,3 +114,59 @@ class CommunityEnergyInfo(models.Model):
 
     def __str__(self):
         return "%s" % (self.community.nif)
+
+
+class CentralSystem(models.Model):
+    """
+        Tokens for OCPP Central System authentication against Supervecina.
+    """
+    token = models.UUIDField(default=uuid.uuid4)
+
+
+class ChargePoint(models.Model):
+    """
+        Charge Point Information.
+        Multiple communities are allowed for each CP to allow external
+        users to use the CP.
+    """
+    token = models.UUIDField(default=uuid.uuid4)
+    serial_id = models.CharField(max_length=200, blank=True,
+                                 null=True, default="")
+    status = models.CharField(max_length=100, default="operative",
+                              choices=(('operative', 'operative'),
+                                       ('inoperative', 'inoperative')))
+    error_code = models.CharField(max_length=200, blank=True,
+                                  null=True, default="")
+    communities = models.ManyToManyField(Community,
+                                         related_name='authorized_chargepoints')
+    location = models.CharField(max_length=350, blank=True,
+                                null=True, default="")
+
+    def __str__(self):
+        return "%s" % (self.location)
+
+
+class CPMessage(models.Model):
+    """
+        Messages from Supervecina for a Charge Point through Central System.
+        Central System periodically pings for messages such as 
+        RemoteStartTransaction.
+    """
+    charge_point = models.ForeignKey(ChargePoint, null=True, on_delete=models.SET_NULL)
+    central_system = models.ForeignKey(CentralSystem, on_delete=models.CASCADE)
+    message = models.CharField(max_length=1000, blank=True,
+                                 null=True, default="")
+    datetime = models.DateTimeField(auto_now_add=True)
+    sent = models.BooleanField(default=False, blank=True)
+
+    def __str__(self):
+        return "%s" % (self.message)
+
+
+def unique_id(): 
+    return int(str(time.time()).split('.')[0])
+
+class EVTransaction(models.Model):
+    consumer = models.ForeignKey(UserCommunity, on_delete=models.CASCADE)
+    charge_point = models.ForeignKey(ChargePoint, null=True, on_delete=models.SET_NULL)
+    data = models.ForeignKey(ConsumedEnergy, null=True, on_delete=models.SET_NULL)

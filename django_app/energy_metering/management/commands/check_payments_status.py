@@ -44,7 +44,7 @@ class Command(BaseCommand):
         if options['action'] == 'start':
             job = scheduler.schedule(scheduled_time=timezone.now(),
                                      func=check_statuses,
-                                     interval=180)  # Every 180 secs
+                                     interval=60)  # Every 180 secs
             print("Job scheduled.")
         else:
             jobs = scheduler.get_jobs()

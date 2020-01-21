@@ -122,3 +122,109 @@ class EnergyTest(TestCase):
 
     def test_2(self):
         pass
+
+
+class EVEnergyTest(TestCase):
+    fixtures = ['1_comm_2_user_1cs_1cp.json']
+
+    def test_authorize_cp(self):
+        """
+            BootNotification
+        """
+        client = APIClient()
+        response = client.post('/energy/authorize_cp',
+                               {"token": "8fb259bb-6b73-4357-a840-8a0048de0af3",
+                                "cp_id": "serial123"
+                                })
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()['status'], 'ok')
+
+    def test_save_cp_energy(self):
+        """
+            StartTransaction
+            StopTransaction
+        """
+        client = APIClient()
+
+        response = client.post('/energy/new_transaction',
+                               {"token": "8fb259bb-6b73-4357-a840-8a0048de0af3",
+                                "user_id": "1"
+                                })
+        self.assertEqual(response.status_code, 200)
+
+        answer = response.json()
+        self.assertEqual(answer['status'], 'ok')
+        transaction_id = answer['transaction_id']
+
+        response = client.post('/energy/authorize_cp',
+                               {"token": "8fb259bb-6b73-4357-a840-8a0048de0af3",
+                                "cp_id": "serial123",
+                                "datetime": "2019-09-17 19:49:00+00:00",
+                                "amount": "10",
+                                "mam_address": "",
+                                "transaction_id": transaction_id
+                                })
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()['status'], 'ok')
+
+
+    def test_authorize_user(self):
+        """
+            Authorize
+        """
+        client = APIClient()
+
+        response = client.post('/energy/authorize_user',
+                               {"token": "8fb259bb-6b73-4357-a840-8a0048de0af3",
+                                "user_id": "1",
+                                "cp_id": "serial123"
+                                })
+        self.assertEqual(response.status_code, 200)
+
+        answer = response.json()
+        self.assertEqual(answer['status'], 'ok')
+
+        response = client.post('/energy/authorize_user',
+                               {"token": "8fb259bb-6b73-4357-a840-8a0048de0af3",
+                                "user_id": "2",
+                                "cp_id": "serial123"
+                                })
+        self.assertEqual(response.status_code, 200)
+
+        answer = response.json()
+        self.assertEqual(answer['status'], 'nok')
+
+
+    def test_cp_status_update(self):
+        """
+            StatusNotification
+        """
+        client = APIClient()
+
+        response = client.post('/energy/cp_status_update',
+                               {"token": "8fb259bb-6b73-4357-a840-8a0048de0af3",
+                                "status": "operative",
+                                "cp_id": "serial123",
+                                "error_code": "noerror"
+                                })
+        self.assertEqual(response.status_code, 200)
+
+        answer = response.json()
+        self.assertEqual(answer['status'], 'ok')
+
+
+    def test_get_messages(self):
+        """
+            Get messages fot the given CP
+        """
+        client = APIClient()
+
+        response = client.get('/energy/messages',
+                               {"token": "8fb259bb-6b73-4357-a840-8a0048de0af3",
+                                "cp_id": "serial123",
+                                })
+        self.assertEqual(response.status_code, 200)
+
+        answer = response.json()
+        self.assertEqual(answer['status'], 'ok')
+        print(answer['messages'])
