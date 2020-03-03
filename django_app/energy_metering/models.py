@@ -118,7 +118,7 @@ class CommunityEnergyInfo(models.Model):
 
 class CentralSystem(models.Model):
     """
-        Tokens for OCPP Central System authentication against Supervecina.
+        Token for OCPP Central System authentication against Supervecina.
     """
     token = models.UUIDField(default=uuid.uuid4)
 
@@ -132,9 +132,7 @@ class ChargePoint(models.Model):
     token = models.UUIDField(default=uuid.uuid4)
     serial_id = models.CharField(max_length=200, blank=True,
                                  null=True, default="")
-    status = models.CharField(max_length=100, default="operative",
-                              choices=(('operative', 'operative'),
-                                       ('inoperative', 'inoperative')))
+    status = models.CharField(max_length=100, default="available")
     error_code = models.CharField(max_length=200, blank=True,
                                   null=True, default="")
     communities = models.ManyToManyField(Community,
@@ -144,6 +142,15 @@ class ChargePoint(models.Model):
 
     def __str__(self):
         return "%s" % (self.location)
+
+
+class CPConnector(models.Model):
+    """
+        Connector from a ChargePoint
+    """
+    charge_point = models.ForeignKey(ChargePoint, on_delete=models.CASCADE)
+    connector_id = models.CharField(max_length=100, default="available")
+    status = models.CharField(max_length=100, default="available")
 
 
 class CPMessage(models.Model):

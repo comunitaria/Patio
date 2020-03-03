@@ -5,7 +5,7 @@ const { asciiToTrytes, trytesToAscii } = require('@iota/converter')
 const IOTA = require('iota.lib.js');
 const express = require('express');
 
-const provider = `http://127.0.0.1:14265` // `https://nodes.devnet.iota.org`
+const provider =  `https://nodes.devnet.iota.org`
 const mode = "public"
 const mamExplorerLink = `https://mam-explorer.firebaseapp.com/?provider=${encodeURIComponent(provider)}&mode=${mode}&root=`
 

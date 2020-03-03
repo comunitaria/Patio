@@ -12,7 +12,7 @@ import requests
 from . import serializers
 from hashlib import md5
 from comunitaria.models import UserCommunity
-from comunitaria.api import check_user_comm_permissions
+from comunitaria.utils import check_user_comm_permissions
 from energy_metering.management.commands.generate_energy_invoices import generate_energy_invoices
 from .models import *
 
@@ -201,7 +201,7 @@ class EnergyInvoiceViewSet(viewsets.ReadOnlyModelViewSet):
         return EnergyInvoice.objects.filter(payer__id=usercomm_id)
 
 
-# Views for Charge Point - Central System - Supervecina Interaction
+# API functions for Charge Point - Central System - Supervecina Interaction
 
 @api_view(['GET'])
 @transaction.atomic
@@ -265,6 +265,10 @@ def save_CP_energy_consumption(request):
         return Response({'status': 'nok',
                          'error': 'Consumer is not identified'})
 
+    if ev_transaction.data is not None:
+        # Transaction was saved before, CP insisted with duplicated Stop messages
+        return Response({'status': 'ok'})
+
     user_comm = ev_transaction.consumer
     unit_price = user_comm.community.communityenergyinfo.in_community_energy_price
 
@@ -295,7 +299,8 @@ def update_CP_status(request):
     params = request.data
     token = params['token']
     cp_id = params['cp_id']
-    status = params['status']
+    connector_id = params['connector_id']
+    status = params['status'].lower()
     error_code = params['error_code']
 
     if not CentralSystem.objects.filter(token=token).first():
@@ -307,7 +312,14 @@ def update_CP_status(request):
         return Response({'status': 'nok',
                          'error': 'Charge Point is not identified'})
 
-    charge_point.status = status
+    if int(connector_id) == 0:  # Main controller
+        charge_point.status = status
+    else:
+        connector, created = CPConnector.objects.get_or_create(charge_point=charge_point,
+                                                               connector_id=connector_id)
+        connector.status = status
+        connector.save()
+
     charge_point.error_code = error_code
     charge_point.save()
     
@@ -396,9 +408,33 @@ def get_consumptions_list(user):
         # serialized = serializers.ConsumedEnergySerializer(consumptions, many=True)
         # time, energy_amount, price, community.community_address
         for consumption in consumptions:
-            response += "%s - %s - %s: %s\n" % (consumption.community.community_address,
-                                            consumption.time,
-                                            consumption.energy_amount,
-                                            consumption.price)
+            response += "%s - %s: %s\n" % (#consumption.community.community_address,
+                                            consumption.time.strftime("%Y-%m-%d %H:%M:%S"),
+                                            "%.2f Wh" % consumption.energy_amount,
+                                            "€%.2f" % consumption.price)
 
     return response
+
+
+def add_remote_start_message(user_community, charge_point_id=None):
+    """
+        Generates a remote start transaction message to be received by the
+        CentralSystem and dispatched to the specific ChargePoint.
+        user_community is the user who'll be charged for this transaction.
+    """
+    charge_point = None
+    if not charge_point_id:
+        charge_point = user_community.community.authorized_chargepoints.first()
+    else:
+        charge_point = ChargePoint.objects.filter(serial_id=charge_point_id).first()
+    
+    central_system = CentralSystem.objects.all().first()
+
+    cp_in_comm = charge_point in user_community.community.authorized_chargepoints.all()
+    if not charge_point or charge_point.status in ['unavailable', 'faulted'] or not cp_in_comm:
+        return False
+
+    CPMessage.objects.create(charge_point=charge_point,
+                             central_system=central_system,
+                             message="remote_start,%s" % user_community.id)
+    return True

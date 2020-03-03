@@ -1,9 +1,12 @@
-This software is expected to be running on Smart Community Brain (Raspberry Pi).
+# Comunitaria's Smart Community Brain
 
-MAM client is a process listening to new messages from EnergyManager to be published to MAM.
+- This software is expected to be running on Smart Community Brain (Raspberry Pi).
 
-EnergyManager contains the EnergyMonitor, that periodically monitors the generated and consumed energy in a community.
+- MAM client is a process listening to new messages from EnergyManager to be published to MAM.
 
-start_scb script setups the virtualenv, installs npm packages, and launch both processes.
+- EnergyManager contains the EnergyMonitor, that periodically monitors the generated and consumed energy in a community.
 
-django_app contains the app plugged in to backend
+- start_scb script setups the virtualenv, installs npm packages, and launch both processes.
+
+- django_app contains the app that must be plugged into the backend
+

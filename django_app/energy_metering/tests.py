@@ -203,9 +203,10 @@ class EVEnergyTest(TestCase):
 
         response = client.post('/energy/cp_status_update',
                                {"token": "8fb259bb-6b73-4357-a840-8a0048de0af3",
-                                "status": "operative",
+                                "status": "Charging",
                                 "cp_id": "serial123",
-                                "error_code": "noerror"
+                                "error_code": "noerror",
+                                "connector_id": 1
                                 })
         self.assertEqual(response.status_code, 200)
 
