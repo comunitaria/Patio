@@ -12,6 +12,8 @@ const { asciiToTrytes, trytesToAscii } = require('@iota/converter')
 const express = require('express');
 
 var iota = new IOTA({ provider: `https://nodes.devnet.iota.org` })
+const mode = "restricted"
+const secretKey = 'VERYSECRETKEY'
 
 // Init State
 let root = process.env.ROOT;
@@ -21,7 +23,7 @@ console.log('Listening to root:', root);
 var mamState = Mam.init(iota)
 
 const execute = async () => {
-    const resp = await Mam.fetch(root, 'public');
+    const resp = await Mam.fetch(root, mode, secretKey);
     try {
       resp.messages.forEach((message: any) => console.log(trytesToAscii(message)));
     } catch (e) {

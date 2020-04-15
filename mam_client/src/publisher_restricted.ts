@@ -6,9 +6,11 @@ const IOTA = require('iota.lib.js');
 const express = require('express');
 
 const provider =  `https://nodes.devnet.iota.org`
-const mode = "public"
+const mode = "restricted"
+const secretKey = 'VERYSECRETKEY'
+const port = 3500
+
 const mamExplorerLink = `https://mam-explorer.firebaseapp.com/?provider=${encodeURIComponent(provider)}&mode=${mode}&root=`
-const port = 3000
 
 // remove 'devnet' for mainnet
 var iota = new IOTA({ provider: provider })
@@ -20,6 +22,8 @@ var mamState = Mam.init(iota)
 // To add restriction later:
 // https://github.com/iotaledger/mam.client.js/blob/master/example/publishAndFetchRestricted.js
 
+// Set channel mode
+mamState = Mam.changeMode(mamState, mode, secretKey)
 
 // Publish to tangle
 const publish = async (packet: any) => {
@@ -74,5 +78,5 @@ process.on('SIGINT', () => {
   })
 })
 
-// ./node_modules/.bin/ts-node src/publisher.ts
+// ./node_modules/.bin/ts-node src/publisher_restricted.ts
 // 
