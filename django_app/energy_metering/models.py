@@ -106,9 +106,9 @@ class CommunityEnergyInfo(models.Model):
     apitoshi_apikey = models.CharField(max_length=350, blank=True,
                                        null=True, default="")
     invoice_self_consumption = models.BooleanField(default=False, blank=True)
-    in_community_energy_price = models.DecimalField(decimal_places=2,
+    in_community_energy_price = models.DecimalField(decimal_places=6,
                                                     max_digits=20)
-    ex_community_energy_price = models.DecimalField(decimal_places=2,
+    ex_community_energy_price = models.DecimalField(decimal_places=6,
                                                     max_digits=20)
     token = models.UUIDField(default=uuid.uuid4)
 
