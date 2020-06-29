@@ -5,7 +5,7 @@ const { asciiToTrytes, trytesToAscii } = require('@iota/converter')
 const IOTA = require('iota.lib.js');
 const express = require('express');
 
-const provider =  `https://nodes.devnet.iota.org`
+const provider =  `https://nodes.devnet.iota.org`  // https://nodes.thetangle.org:443
 const mode = "restricted"
 const secretKey = 'VERYSECRETKEY'
 const port = 3500
