@@ -1,5 +1,5 @@
 
-# Supervecina's Smart Community Brain
+# Patio Smart Community Brain
 
 This repository contains the software expected to be running on Smart Community Brain, the IOT Hub developed by [Supervecina](https://www.supervecina.com) . It is currently using Raspberry Pi hardware, but can be replaced by an Omega2 LTE or similar.
 
