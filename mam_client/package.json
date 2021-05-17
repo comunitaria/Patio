@@ -5,6 +5,7 @@
   "main": "1.js",
   "dependencies": {
     "@iota/mam": "^0.7.3",
+    "@iota/mam.js": "^1.5.0",
     "@types/node": "^12.7.5",
     "express": "^4.17.1",
     "iota.lib.js": "^0.5.2"
