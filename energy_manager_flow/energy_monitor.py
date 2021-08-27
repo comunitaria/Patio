@@ -11,6 +11,7 @@ import config
 
 datetime_format = "%Y-%m-%d %H:%M:%S+00:00"
 
+
 class EnergyMonitor(object):
     """
     """
@@ -22,10 +23,10 @@ class EnergyMonitor(object):
     def generation_monitor(self):
         """
             Periodically gets measure from generation smart meter,
-            sending to MAM
+            sending to chosen DLT
         """
         while not self.stop:
-            time.sleep(5)  # Every 5 seconds
+            time.sleep(config.WAITING_TIME)  # Every 5 seconds
             
             now = datetime.utcnow().strftime(datetime_format)
             # Get measure from sensor
@@ -62,14 +63,14 @@ class EnergyMonitor(object):
             neighbour sensor to measure consuming.
         """
         while not self.stop:
-            time.sleep(5)  # Every 5 seconds
+            time.sleep(config.WAITING_TIME)  # Every 5 seconds
             
             now = datetime.utcnow().strftime(datetime_format)
             c_type = "consumed"
 
             # Get measures from building and neighbours sensors
-            for sensor in sensors_data.SENSORS["consumption"]:
-                value = sensors_data.get_sensor_value(sensors_data.SENSORS["consumption"][sensor])
+            for sensor in config.SENSORS["consumption"]:
+                value = sensors_data.get_sensor_value(config.SENSORS["consumption"][sensor])
                 if float(value.replace(config.power_unit, '').strip()) <= 0.001:
                     continue
 
@@ -80,11 +81,9 @@ class EnergyMonitor(object):
                         "community_unique_id": config.community_unique_id
                         }
 
-                response = requests.get("http://localhost:3000",
-                                        params={"message": json.dumps(data)})
-                response = response.json()
-                msg_root = response['root']
-                data.update({'mam_address': msg_root,
+                saved_log_id = self.save_to_DLT(data)
+
+                data.update({'dlt_address': saved_log_id,
                              'token': self.community_token})
 
                 # Send data to SaaS
@@ -93,11 +92,28 @@ class EnergyMonitor(object):
                 if not response.ok:
                     print(response.content)
 
-
     def stop_process(self):
         def stop_handler(signum, frame):
             self.stop = True
         return stop_handler
+
+    def save_to_DLT(self, data):
+        saved_log_id = ""
+        if config.IOTA:
+            response = requests.get("http://localhost:3000",
+                                    params={"message": json.dumps(data)})
+            response = response.json()
+            saved_log_id = response['root']
+        else: # Zenroom
+            response = requests.post("http://localhost:3300/api/patio_save_energy",
+                                    json={"data":
+                                            {"dataToStore": data}
+                                            }
+                                    )
+            response = response.json()
+            saved_log_id = response['log_tag']
+        
+        return saved_log_id
 
     def run(self):
         signal.signal(signal.SIGINT, self.stop_process())

@@ -1,4 +1,5 @@
 import time
+import requests
 
 import config
 
@@ -13,20 +14,24 @@ if not config.MOCK_SENSORS:
     ina1.configure(voltage_range=ina1.RANGE_16V, gain=ina1.GAIN_AUTO, bus_adc=ina1.ADC_128SAMP, shunt_adc=ina1.ADC_128SAMP)
     ina2.configure(voltage_range=ina2.RANGE_16V, gain=ina2.GAIN_AUTO, bus_adc=ina2.ADC_128SAMP, shunt_adc=ina2.ADC_128SAMP)
 
-# This dict is fixed. But in the future it'll be get from SaaS API to get data
-# for the specific community
-# In the case of 'neighbour_X', X is the UserCommunity ID from backend
-SENSORS = {"generation": {"generation_1": ""},
-           "consumption": {"common_place_1": "0x40",  # value should be the addr of the sensor
-                           # 4 is the id of demo usercommunity for Community 1
-                           "neighbour_4": "0x41"
-                           },
-           }
+
 
 
 def get_sensor_value(sensor_id):
     if config.MOCK_SENSORS:
         return "0.5W"
+    elif config.IOTA_WATT_URL:
+        latest_value = "0"
+        endpoint = ("/query?select=[time.iso,%s]&begin=M&end=s&"
+                    "group=h&format=json&header=yes" % sensor_id)
+        iota_url = config.IOTA_WATT_URL + endpoint
+        response = requests.get(iota_url, auth=config.IOTA_WATT_AUTH)
+        logs = response.json().get('data')
+        if logs:
+            date, latest_value = logs[-1]
+        
+        return str(latest_value)
+
     else:
         # Use the ID from SENSORS to get the real value
         try:
