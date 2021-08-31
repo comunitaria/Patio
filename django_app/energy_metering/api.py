@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from rest_framework.response import Response
-from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, render
@@ -8,17 +7,17 @@ from django.db.models import Q
 from django.db import transaction
 from rest_framework import viewsets
 from rest_framework.decorators import api_view, permission_classes
-import requests
 from . import serializers
-from hashlib import md5
 from comunitaria.models import UserCommunity
 from comunitaria.utils import check_user_comm_permissions
 from energy_metering.management.commands.generate_energy_invoices import generate_energy_invoices
-from .models import *
-
+from .models import (GeneratedEnergy, ConsumedEnergy, EnergyTransaction,
+                     EnergyInvoice, CommunityEnergyInfo, CentralSystem,
+                     ChargePoint, CPConnector, CPMessage, EVTransaction)
 
 
 power_unit = 'W'
+
 
 def get_community_from_token(token):
     community_info = CommunityEnergyInfo.objects.filter(token=token).first()
@@ -38,7 +37,7 @@ def save_energy_action(request):
     date = params['datetime']
     amount = params['amount']
     e_type = params['type']
-    mam_address = params['mam_address']
+    dlt_address = params['dlt_address']
     sensor_id = params.get('sensor_id', '')
 
     amount = amount.replace(power_unit, '').strip()
@@ -51,7 +50,7 @@ def save_energy_action(request):
         gen_obj = GeneratedEnergy(community=community_info.community,
                                   energy_amount=amount,
                                   time=date,
-                                  mam_address=mam_address)
+                                  dlt_address=dlt_address)
         gen_obj.save()
     else:
         unit_price = community_info.in_community_energy_price
@@ -67,7 +66,7 @@ def save_energy_action(request):
         consume_obj = ConsumedEnergy(community=community_info.community,
                                      energy_amount=amount,
                                      time=date,
-                                     mam_address=mam_address,
+                                     dlt_address=dlt_address,
                                      price=price,
                                      user=user_comm)
         consume_obj.save()
@@ -122,7 +121,8 @@ class GeneratedEnergyViewSet(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset(self):
         community_id = self.request.query_params.get('community', None)
-        allowed, response = check_user_comm_permissions(self.request, community_id)
+        allowed, response = check_user_comm_permissions(self.request,
+        community_id)
         if not allowed:
             return GeneratedEnergy.objects.none()
 
@@ -142,7 +142,8 @@ class ConsumedEnergyViewSet(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         community_id = self.request.query_params.get('community', None)
         usercomm_id = self.request.query_params.get('usercommunity', None)
-        allowed, response = check_user_comm_permissions(self.request, community_id)
+        allowed, response = check_user_comm_permissions(self.request,
+        community_id)
         
         usercomm = UserCommunity.objects.filter(id=usercomm_id).first()
         if not allowed or not usercomm:
@@ -201,7 +202,7 @@ class EnergyInvoiceViewSet(viewsets.ReadOnlyModelViewSet):
         return EnergyInvoice.objects.filter(payer__id=usercomm_id)
 
 
-# API functions for Charge Point - Central System - Supervecina Interaction
+# API functions for OCPP Charge Point - Central System - Supervecina Interaction
 
 @api_view(['GET'])
 @transaction.atomic
@@ -248,7 +249,7 @@ def save_CP_energy_consumption(request):
     token = params['token']
     date = params['datetime']
     amount = params['amount']  # meter_stop, integer in Wh
-    mam_address = params['mam_address']
+    dlt_address = params['dlt_address']
     transaction_id = params.get('transaction_id', '')
     charge_point_id = params['cp_id']
 
@@ -266,7 +267,8 @@ def save_CP_energy_consumption(request):
                          'error': 'Consumer is not identified'})
 
     if ev_transaction.data is not None:
-        # Transaction was saved before, CP insisted with duplicated Stop messages
+        # Transaction was saved before, CP insisted with duplicated Stop
+        # messages
         return Response({'status': 'ok'})
 
     user_comm = ev_transaction.consumer
@@ -276,17 +278,17 @@ def save_CP_energy_consumption(request):
     price = float(unit_price) * float(amount)
 
     consume_obj = ConsumedEnergy(community=user_comm.community,
-                                    energy_amount=amount,
-                                    time=date,
-                                    mam_address=mam_address,
-                                    price=price,
-                                    user=user_comm)
+                                 energy_amount=amount,
+                                 time=date,
+                                 dlt_address=dlt_address,
+                                 price=price,
+                                 user=user_comm)
     consume_obj.save()
 
     ev_transaction.data = consume_obj
     ev_transaction.charge_point = charge_point
     ev_transaction.save()
-    
+
     return Response({'status': 'ok'})
 
 
@@ -294,7 +296,8 @@ def save_CP_energy_consumption(request):
 @permission_classes((AllowAny, ))
 def update_CP_status(request):
     """
-        Updates status for a given Charge Point after CS received a StatusNotification.
+        Updates status for a given Charge Point after CS received a
+        StatusNotification.
     """
     params = request.data
     token = params['token']
@@ -315,14 +318,15 @@ def update_CP_status(request):
     if int(connector_id) == 0:  # Main controller
         charge_point.status = status
     else:
-        connector, created = CPConnector.objects.get_or_create(charge_point=charge_point,
-                                                               connector_id=connector_id)
+        connector, created = CPConnector.objects.get_or_create(
+            charge_point=charge_point,
+            connector_id=connector_id)
         connector.status = status
         connector.save()
 
     charge_point.error_code = error_code
     charge_point.save()
-    
+
     return Response({'status': 'ok'})
 
 
@@ -404,14 +408,16 @@ def get_consumptions_list(user):
     response = ""
     usercomms = user.communities.all()
     for usercomm in usercomms:
-        consumptions = ConsumedEnergy.objects.filter(user=usercomm).order_by('-time')[:10]
+        consumptions = ConsumedEnergy.objects.filter(
+            user=usercomm).order_by('-time')[:10]
         # serialized = serializers.ConsumedEnergySerializer(consumptions, many=True)
         # time, energy_amount, price, community.community_address
         for consumption in consumptions:
-            response += "%s - %s: %s\n" % (#consumption.community.community_address,
-                                            consumption.time.strftime("%Y-%m-%d %H:%M:%S"),
-                                            "%.2f Wh" % consumption.energy_amount,
-                                            "€%.2f" % consumption.price)
+            response += "%s - %s: %s\n" % (
+                #consumption.community.community_address,
+                consumption.time.strftime("%Y-%m-%d %H:%M:%S"),
+                "%.2f Wh" % consumption.energy_amount,
+                "€%.2f" % consumption.price)
 
     return response
 
@@ -426,8 +432,9 @@ def add_remote_start_message(user_community, charge_point_id=None):
     if not charge_point_id:
         charge_point = user_community.community.authorized_chargepoints.first()
     else:
-        charge_point = ChargePoint.objects.filter(serial_id=charge_point_id).first()
-    
+        charge_point = ChargePoint.objects.filter(
+            serial_id=charge_point_id).first()
+
     central_system = CentralSystem.objects.all().first()
 
     cp_in_comm = charge_point in user_community.community.authorized_chargepoints.all()

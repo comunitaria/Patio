@@ -14,7 +14,7 @@ class GeneratedEnergy(models.Model):
     community = models.ForeignKey(Community, on_delete=models.CASCADE)
     time = models.DateTimeField()
     energy_amount = models.DecimalField(decimal_places=3, max_digits=20)
-    mam_address = models.CharField(max_length=300)
+    dlt_address = models.CharField(max_length=300)
 
     def __str__(self):
         return "%s - %s " % (self.community.nif, self.energy_amount)
@@ -30,7 +30,7 @@ class ConsumedEnergy(models.Model):
                              blank=True, null=True)
     time = models.DateTimeField()
     energy_amount = models.DecimalField(decimal_places=4, max_digits=20)
-    mam_address = models.CharField(max_length=300)
+    dlt_address = models.CharField(max_length=300)
     price = models.DecimalField(default=0,decimal_places=4, max_digits=20,
                                 blank=True)
     # Processed by invoicing command
@@ -85,8 +85,6 @@ class EnergyInvoice(models.Model):
                               blank=True, null=True)
     payment_req = models.CharField(max_length=600, blank=True,
                                    null=True, default="")
-    apitoshi_payment_id = models.CharField(max_length=600, blank=True,
-                                           null=True, default="")
     paid = models.BooleanField(default=False, blank=True)
 
     def __str__(self):
@@ -100,11 +98,8 @@ class CommunityEnergyInfo(models.Model):
         - energy price is per Watt/h (in EUR)
         - 'in' for consumptions inside community
         - 'ex' for selling to other communities
-        - APItoshi key is the key for the community (or installation provider)
     """
     community = models.OneToOneField(Community, on_delete=models.CASCADE)
-    apitoshi_apikey = models.CharField(max_length=350, blank=True,
-                                       null=True, default="")
     invoice_self_consumption = models.BooleanField(default=False, blank=True)
     in_community_energy_price = models.DecimalField(decimal_places=6,
                                                     max_digits=20)
@@ -114,6 +109,9 @@ class CommunityEnergyInfo(models.Model):
 
     def __str__(self):
         return "%s" % (self.community.nif)
+
+
+# Models for OCPP interaction
 
 
 class CentralSystem(models.Model):
@@ -172,6 +170,7 @@ class CPMessage(models.Model):
 
 def unique_id(): 
     return int(str(time.time()).split('.')[0])
+
 
 class EVTransaction(models.Model):
     consumer = models.ForeignKey(UserCommunity, on_delete=models.CASCADE)

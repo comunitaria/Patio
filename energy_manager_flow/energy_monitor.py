@@ -29,33 +29,32 @@ class EnergyMonitor(object):
             time.sleep(config.WAITING_TIME)  # Every 5 seconds
             
             now = datetime.utcnow().strftime(datetime_format)
-            # Get measure from sensor
-            value = sensors_data.get_sensor_value("generation_1")
-            if float(value.replace(config.power_unit, '').strip()) <= 0.001:
-                continue
+            # Get measure from sensors
+            sensors = config.SENSORS["generation"]
+            for sensor in sensors:
+                value = sensors_data.get_sensor_value(sensors[sensor])
+                if float(value.replace(config.power_unit, '').strip()) <= 0.001:
+                    continue
 
-            data = {"amount": value,  # Amount of generation at this moment
-                    "datetime": now,
-                    "type": "generated",
-                    "community_unique_id": config.community_unique_id
-                    }
-            # start = time.time()
-            response = requests.get("http://localhost:3000",
-                                    params={"message": json.dumps(data)})
-            # end = time.time()
-            # print("Time for MAM transaction: %f" % (end - start))
-            response = response.json()
-            msg_root = response['root']
-            data.update({'mam_address': msg_root,
-                         'token': self.community_token})
+                data = {"amount": value,  # Amount of generation at this moment
+                        "datetime": now,
+                        "type": "generated",
+                        "sensor_id": sensor,
+                        "community_unique_id": config.community_unique_id
+                        }
+                
+                saved_log_id = self.save_to_DLT(data)
 
-            # Send data to SaaS
-            response = requests.post("%s/energy/save" % config.base_backend_url,
-                                     json=data)
+                data.update({'dlt_address': saved_log_id,
+                            'token': self.community_token})
 
-            if not response.ok:
-                print(response.content)
+                # Send data to SaaS
+                response = requests.post("%s/energy/save" %
+                                         config.base_backend_url,
+                                         json=data)
 
+                if not response.ok:
+                    print(response.content)
 
     def consuming_monitor(self):
         """
@@ -69,8 +68,9 @@ class EnergyMonitor(object):
             c_type = "consumed"
 
             # Get measures from building and neighbours sensors
-            for sensor in config.SENSORS["consumption"]:
-                value = sensors_data.get_sensor_value(config.SENSORS["consumption"][sensor])
+            sensors = config.SENSORS["consumption"]
+            for sensor in sensors:
+                value = sensors_data.get_sensor_value(sensors[sensor])
                 if float(value.replace(config.power_unit, '').strip()) <= 0.001:
                     continue
 
@@ -87,7 +87,8 @@ class EnergyMonitor(object):
                              'token': self.community_token})
 
                 # Send data to SaaS
-                response = requests.post("%s/energy/save" % config.base_backend_url,
+                response = requests.post("%s/energy/save" %
+                                         config.base_backend_url,
                                          json=data)
                 if not response.ok:
                     print(response.content)
@@ -104,12 +105,12 @@ class EnergyMonitor(object):
                                     params={"message": json.dumps(data)})
             response = response.json()
             saved_log_id = response['root']
-        else: # Zenroom
+        else:  # Zenroom
             response = requests.post("http://localhost:3300/api/patio_save_energy",
-                                    json={"data":
+                                     json={"data":
                                             {"dataToStore": data}
-                                            }
-                                    )
+                                           }
+                                     )
             response = response.json()
             saved_log_id = response['log_tag']
         
@@ -132,4 +133,3 @@ class EnergyMonitor(object):
 if __name__ == '__main__':
     em = EnergyMonitor('1')
     em.run()
-
