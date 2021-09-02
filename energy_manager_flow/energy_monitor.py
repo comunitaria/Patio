@@ -1,4 +1,4 @@
-import codecs
+import logging
 import json
 import time
 import requests
@@ -8,6 +8,9 @@ import sensors_data
 from datetime import datetime
 import config
 
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s : %(levelname)s :%(message)s',
+                    filename="energy_monitoring.log")
 
 datetime_format = "%Y-%m-%d %H:%M:%S+00:00"
 
@@ -54,7 +57,7 @@ class EnergyMonitor(object):
                                          json=data)
 
                 if not response.ok:
-                    print(response.content)
+                    logging.error(response.content)
 
     def consuming_monitor(self):
         """
@@ -91,7 +94,7 @@ class EnergyMonitor(object):
                                          config.base_backend_url,
                                          json=data)
                 if not response.ok:
-                    print(response.content)
+                    logging.error(response.content)
 
     def stop_process(self):
         def stop_handler(signum, frame):
@@ -124,11 +127,12 @@ class EnergyMonitor(object):
         t2 = threading.Thread(target=self.consuming_monitor)
         t1.start()
         t2.start()
-        print("Started...")
+        logging.info("Started monitoring...")
 
         t1.join()
         t2.join()
-        print("Stopped")
+        logging.info("Stopped monitoring")
+
 
 if __name__ == '__main__':
     em = EnergyMonitor('1')

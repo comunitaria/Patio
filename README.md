@@ -13,10 +13,30 @@ This repository contains the software expected to be running on PATIO, the IOT H
 - django_app contains the app that must be plugged into the backend for SaaS integration.
 
 ## Zenroom
-- Alternatively, Zenroom can be used instead of IOTA's MAM channels. For that, the smart contract is already wrapped into a Dockerfile under zenroom folder that needs to be build and run:
+- Alternatively, Zenroom can be used instead of IOTA's MAM channels. For that, the smart contract is already wrapped into a Dockerfile under zenroom folder that needs to be build and running before launching the energy monitoring process:
 `docker build -t zenroom_patio .`
 `docker run -p 3300:3300 -p 3301:3301 zenroom_patio`
 
+Example save:
+<code>POST http://localhost:3300/api/patio_save_energy
+{
+  "data": {"dataToStore": {"amount": "5W",
+                        "datetime": "2021-10-10 10:10",
+                        "sensor_id": "sensor",
+                        "type": "c_type",
+                        "community_unique_id": "community_unique_id"
+                        }
+                },
+
+  "keys": {}
+}</code>
+
+Example get log:
+<code>POST http://localhost:3300/api/patio_load_energy_log
+{
+  "data": {"log_tag_id": "c274b506658032b6f55e6d8c930b0f81f9aec4d629040773f637579793b2ea441f6260"},
+  "keys": {}
+}</code>
 
 
 ## R+D
