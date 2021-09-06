@@ -1,7 +1,5 @@
 # encoding: utf-8
 from rest_framework import serializers
-from comunitaria.models import (Province, Municipality, Property, Street,
-                                Number)
 from .models import *
 
 
@@ -27,6 +25,7 @@ class EnergyInvoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = EnergyInvoice
         fields = '__all__'
+
 
 class CPMessageSerializer(serializers.ModelSerializer):
     class Meta:

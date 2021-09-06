@@ -30,7 +30,7 @@ def get_community_from_token(token):
 def save_energy_action(request):
     """
         Receives data representing a generation or consumption action
-        from a SCB.
+        from a Patio device.
     """
     params = request.data
     token = params['token']
@@ -47,6 +47,14 @@ def save_energy_action(request):
         return Response({'status': 'nok', 'msg': 'Invalid token'})
 
     if e_type == 'generated':
+        # Look if log already exists
+        generated_log_exists = GeneratedEnergy.objects.filter(
+            community=community_info.community,
+            energy_amount=amount,
+            time=date)
+        if generated_log_exists:
+            return Response({'status': 'duplicated'})
+
         gen_obj = GeneratedEnergy(community=community_info.community,
                                   energy_amount=amount,
                                   time=date,
@@ -56,12 +64,23 @@ def save_energy_action(request):
         unit_price = community_info.in_community_energy_price
 
         # unit_price (W/h) divided by 3600 seconds and multiplied by 
-        # 5 (size of the interval we chose to send data from SCB)
+        # 5 (size of the interval we chose to send data from Patio device)
         price = (float(unit_price)/3600) * 5 * float(amount)
         user_comm = None
+
+        # If the consumption belongs to a specific neighbour instead of
+        # common places
         if 'neighbour' in sensor_id:
             user_comm_id = sensor_id.split('_')[1]
             user_comm = community_info.community.users.filter(id=user_comm_id).first()
+
+        # Look if log already exists
+        consume_log_exists = ConsumedEnergy.objects.filter(
+            community=community_info.community,
+            energy_amount=amount,
+            time=date)
+        if consume_log_exists:
+            return Response({'status': 'duplicated'})
 
         consume_obj = ConsumedEnergy(community=community_info.community,
                                      energy_amount=amount,
@@ -70,19 +89,19 @@ def save_energy_action(request):
                                      price=price,
                                      user=user_comm)
         consume_obj.save()
-    
+
     return Response({'status': 'ok'})
 
 
 @api_view(['POST'])
 def get_pending_messages(request):
     """
-        Returns pending messages for a community's SCB.
+        Returns pending messages for a community's Patio device.
         Messages can be informative, or related to any sensor, ...
     """
 
-    # TODO 
-    
+    # TODO
+
     return Response({'status': 'ok'})
 
 
@@ -106,7 +125,7 @@ def manual_invoice_generation(request):
     if usercomm.administrator:
         generate_energy_invoices(community_id=community_id,
                                  usercommunity_id=None)
-    
+
     return Response({'status': 'ok'})
 
 
@@ -122,7 +141,7 @@ class GeneratedEnergyViewSet(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         community_id = self.request.query_params.get('community', None)
         allowed, response = check_user_comm_permissions(self.request,
-        community_id)
+                                                        community_id)
         if not allowed:
             return GeneratedEnergy.objects.none()
 
@@ -143,8 +162,8 @@ class ConsumedEnergyViewSet(viewsets.ReadOnlyModelViewSet):
         community_id = self.request.query_params.get('community', None)
         usercomm_id = self.request.query_params.get('usercommunity', None)
         allowed, response = check_user_comm_permissions(self.request,
-        community_id)
-        
+                                                        community_id)
+
         usercomm = UserCommunity.objects.filter(id=usercomm_id).first()
         if not allowed or not usercomm:
             return ConsumedEnergy.objects.none()
@@ -177,7 +196,6 @@ class EnergyTransactionViewSet(viewsets.ReadOnlyModelViewSet):
                 Q(producer_community__id=community_id) |
                 Q(consumer_community__id=community_id)
             )
-
 
 
 class EnergyInvoiceViewSet(viewsets.ReadOnlyModelViewSet):

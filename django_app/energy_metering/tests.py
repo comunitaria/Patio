@@ -1,10 +1,6 @@
 from django.test import TestCase
-import requests
 from rest_framework.test import APIClient
-from django.core.management import call_command
-import json
 from energy_metering.models import ConsumedEnergy
-from energy_metering.management.commands.generate_energy_invoices import generate_energy_invoices
 import time
 
 
@@ -18,7 +14,7 @@ class EnergyTest(TestCase):
                                 "datetime": "2019-09-17 18:49:00+00:00",
                                 "amount": "4W",
                                 "type": "generated",
-                                "mam_address": "mam_addr"
+                                "dlt_address": "mam_addr"
                                 })
         self.assertEqual(response.status_code, 200)
 
@@ -29,8 +25,8 @@ class EnergyTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
         answer = response.json()
-        token = answer['token']
-        client.credentials(HTTP_AUTHORIZATION='JWT ' + token)
+        token = answer['access']
+        client.credentials(HTTP_AUTHORIZATION='Bearer ' + token)
 
         # Save consumption from neighbour 1
         response = client.post('/energy/save',
@@ -38,7 +34,7 @@ class EnergyTest(TestCase):
                                 "datetime": "2019-09-17 19:49:00+00:00",
                                 "amount": "1W",
                                 "type": "consumed",
-                                "mam_address": "mam_addr",
+                                "dlt_address": "mam_addr",
                                 "sensor_id": "neighbour_1"
                                 })
 
@@ -50,7 +46,7 @@ class EnergyTest(TestCase):
                                 "datetime": "2019-09-17 20:01:00+00:00",
                                 "amount": "2W",
                                 "type": "consumed",
-                                "mam_address": "mam_addr",
+                                "dlt_address": "mam_addr",
                                 "sensor_id": "neighbour_2"
                                 })
 
@@ -62,7 +58,7 @@ class EnergyTest(TestCase):
                                 "datetime": "2019-09-17 19:58:00+00:00",
                                 "amount": "3W",
                                 "type": "consumed",
-                                "mam_address": "mam_addr",
+                                "dlt_address": "mam_addr",
                                 "sensor_id": "common_place_1"
                                 })
 
@@ -161,12 +157,11 @@ class EVEnergyTest(TestCase):
                                 "cp_id": "serial123",
                                 "datetime": "2019-09-17 19:49:00+00:00",
                                 "amount": "10",
-                                "mam_address": "",
+                                "dlt_address": "",
                                 "transaction_id": transaction_id
                                 })
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()['status'], 'ok')
-
 
     def test_authorize_user(self):
         """
@@ -194,7 +189,6 @@ class EVEnergyTest(TestCase):
         answer = response.json()
         self.assertEqual(answer['status'], 'nok')
 
-
     def test_cp_status_update(self):
         """
             StatusNotification
@@ -213,7 +207,6 @@ class EVEnergyTest(TestCase):
         answer = response.json()
         self.assertEqual(answer['status'], 'ok')
 
-
     def test_get_messages(self):
         """
             Get messages fot the given CP
@@ -228,4 +221,3 @@ class EVEnergyTest(TestCase):
 
         answer = response.json()
         self.assertEqual(answer['status'], 'ok')
-        print(answer['messages'])

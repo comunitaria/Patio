@@ -3219,8 +3219,7 @@
         "form_data": null,
         "property_number": null,
         "user_bank": "",
-        "pin_bank": "",
-        "managed_by_comunitaria": false
+        "pin_bank": ""
     }
 },
 {
@@ -3242,8 +3241,7 @@
         "form_data": null,
         "property_number": null,
         "user_bank": "",
-        "pin_bank": "",
-        "managed_by_comunitaria": false
+        "pin_bank": ""
     }
 },
 {
@@ -4288,7 +4286,6 @@
         "user": 1,
         "time": "2019-12-30T00:00:00Z",
         "energy_amount": "10.0000",
-        "mam_address": "abcaddr",
         "price": "10.0000",
         "processed": false,
         "invoice": null
@@ -4299,7 +4296,6 @@
     "pk": 1,
     "fields": {
         "community": 1,
-        "apitoshi_apikey": null,
         "invoice_self_consumption": false,
         "in_community_energy_price": "1.00",
         "ex_community_energy_price": "1.00",

@@ -112,8 +112,7 @@
         "form_data": null,
         "property_number": null,
         "user_bank": "",
-        "pin_bank": "",
-        "managed_by_comunitaria": false
+        "pin_bank": ""
     }
 },
 {
@@ -703,7 +702,6 @@
     "pk": 1,
     "fields": {
         "community": 1,
-        "apitoshi_apikey": "6ac7fc86-cf70-40ea-840f-fa7b4d2d7ef0",
         "invoice_self_consumption": false,
         "in_community_energy_price": "14.00",
         "ex_community_energy_price": "15.00",

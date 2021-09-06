@@ -31,16 +31,26 @@ class EnergyMonitor(object):
         while not self.stop:
             time.sleep(config.WAITING_TIME)  # Every 5 seconds
             
-            now = datetime.utcnow().strftime(datetime_format)
+            date = datetime.utcnow().strftime(datetime_format)
             # Get measure from sensors
             sensors = config.SENSORS["generation"]
             for sensor in sensors:
-                value = sensors_data.get_sensor_value(sensors[sensor])
+                value_date, value = sensors_data.get_sensor_value(
+                    sensors[sensor])
+
+                if value_date is not None:
+                    date = datetime.strptime(value_date, '%Y-%m-%dT%H:%M:%S')
+                    date = date.strftime(datetime_format)
+                
+                if value is None:
+                    # Connection issues, continue and retry later
+                    continue
+
                 if float(value.replace(config.power_unit, '').strip()) <= 0.001:
                     continue
 
                 data = {"amount": value,  # Amount of generation at this moment
-                        "datetime": now,
+                        "datetime": date,
                         "type": "generated",
                         "sensor_id": sensor,
                         "community_unique_id": config.community_unique_id
@@ -67,18 +77,28 @@ class EnergyMonitor(object):
         while not self.stop:
             time.sleep(config.WAITING_TIME)  # Every 5 seconds
             
-            now = datetime.utcnow().strftime(datetime_format)
+            date = datetime.utcnow().strftime(datetime_format)
             c_type = "consumed"
 
             # Get measures from building and neighbours sensors
             sensors = config.SENSORS["consumption"]
             for sensor in sensors:
-                value = sensors_data.get_sensor_value(sensors[sensor])
+                value_date, value = sensors_data.get_sensor_value(
+                    sensors[sensor])
+                
+                if value_date is not None:
+                    date = datetime.strptime(value_date, '%Y-%m-%dT%H:%M:%S')
+                    date = date.strftime(datetime_format)
+                
+                if value is None:
+                    # Connection issues, continue and try later
+                    continue
+
                 if float(value.replace(config.power_unit, '').strip()) <= 0.001:
                     continue
 
-                data = {"amount": value,  # Amount being consumed at this moment
-                        "datetime": now,
+                data = {"amount": value,
+                        "datetime": date,
                         "sensor_id": sensor,  # Common places or neighbour id
                         "type": c_type,
                         "community_unique_id": config.community_unique_id
@@ -109,14 +129,14 @@ class EnergyMonitor(object):
             response = response.json()
             saved_log_id = response['root']
         else:  # Zenroom
-            response = requests.post("http://localhost:3300/api/patio_save_energy",
-                                     json={"data":
-                                            {"dataToStore": data}
-                                           }
+            response = requests.post(
+                "http://localhost:3300/api/patio_save_energy",
+                json={"data": {"dataToStore": data}
+                      }
                                      )
             response = response.json()
             saved_log_id = response['log_tag']
-        
+
         return saved_log_id
 
     def run(self):
