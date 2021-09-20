@@ -92,9 +92,11 @@ class EnergyMonitor(object):
                 
                 if value is None:
                     # Connection issues, continue and try later
+                    logging.info("Null value, retrying later")
                     continue
 
                 if float(value.replace(config.power_unit, '').strip()) <= 0.001:
+                    logging.info("Value lower than 0.001, ignoring")
                     continue
 
                 data = {"amount": value,
@@ -113,6 +115,7 @@ class EnergyMonitor(object):
                 response = requests.post("%s/energy/save" %
                                          config.base_backend_url,
                                          json=data)
+                logging.info(response.json())
                 if not response.ok:
                     logging.error(response.content)
 

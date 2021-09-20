@@ -18,8 +18,8 @@ else:
 community_token = "c78760cf-7716-4045-8d30-186821d9c8f5"
 community_unique_id = hashlib.md5(community_token.encode()).hexdigest()
 
-IOTA_WATT_URL = ""
-IOTA_WATT_AUTH = HTTPBasicAuth('user', 'pass')
+IOTA_WATT_URL = "http://iotawatt.local"
+IOTA_WATT_AUTH = None  # HTTPBasicAuth('user', 'pass')
 
 
 # This dict is fixed. But in the future it'll be get from SaaS API to get data

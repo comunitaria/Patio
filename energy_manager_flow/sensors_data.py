@@ -29,9 +29,10 @@ def get_sensor_value(sensor_id):
     elif config.IOTA_WATT_URL:
         session = requests.Session()
         latest_value = "0"
-        endpoint = ("query?select=[time.iso,%s]&begin=M&end=s&"
-                    "group=h&format=json&header=yes" % sensor_id)
+        endpoint = ("query?select=[time.iso,%s]&begin=s-1h&end=s&group=5s"
+                    "&format=json&header=yes" % sensor_id)
         iota_url = config.IOTA_WATT_URL + endpoint
+        # logging.info(iota_url)
 
         date = None
         latest_value = None
