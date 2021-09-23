@@ -5,7 +5,7 @@
 # exit when any command fails
 set -e
 
-VENV_DIR="${HOME}/scb_env"
+VENV_DIR="/opt/patio/scb_env"
 if [ ! -d "$VENV_DIR" ]; then
   echo "Creating virtual env..."
   python3.7 -m venv $VENV_DIR

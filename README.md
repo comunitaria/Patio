@@ -8,7 +8,7 @@ This repository contains the software expected to be running on PATIO, the IOT H
 
 - EnergyManager contains the EnergyMonitor, that periodically monitors the generated and consumed energy in a community.
 
-- start_scb script setups the virtualenv, installs npm packages, and launch both processes mentioned above.
+- start_scb script setups the virtualenv, installs npm packages, and launch both processes mentioned above. The entire directory should be under /opt. So, under /opt/patio must be the source and the start_scb script.
 
 - django_app contains the app that must be plugged into the backend for SaaS integration.
 
