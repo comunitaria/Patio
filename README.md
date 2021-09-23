@@ -8,9 +8,21 @@ This repository contains the software expected to be running on PATIO, the IOT H
 
 - EnergyManager contains the EnergyMonitor, that periodically monitors the generated and consumed energy in a community.
 
-- start_scb script setups the virtualenv, installs npm packages, and launch both processes mentioned above. The entire directory should be under /opt. So, under /opt/patio must be the source and the start_scb script.
+- start_scb script setups the virtualenv, installs npm packages, and launch both processes mentioned above. The entire directory should be under /opt. So, under /opt/patio must be the source.
+You can easily do that by cloning the repo into /opt as follows:
+<code>sudo git clone https://github.com/comunitaria/Patio.git /opt/patio</code>
+
+The patio.service file must be copied to systemd services folder:
+<code>sudo cp patio.service /lib/systemd/system/patio.service</code>
+<code>sudo systemctl daemon-reload</code>
+<code>sudo systemctl enable patio.service</code>
+
+You can monitor the service logs with:
+<code>sudo journalctl -u patio -n 100 -f</code>
+
 
 - django_app contains the app that must be plugged into the backend for SaaS integration.
+
 
 ## Zenroom
 - Alternatively, Zenroom can be used instead of IOTA's MAM channels. For that, the smart contract is already wrapped into a Dockerfile under zenroom folder that needs to be build and running before launching the energy monitoring process:
