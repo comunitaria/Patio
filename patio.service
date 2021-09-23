@@ -1,0 +1,11 @@
+ [Unit]
+ Description=PATIO energy monitoring
+ After=multi-user.target
+
+ [Service]
+ Type=idle
+ WorkingDirectory=/opt/patio
+ ExecStart=/opt/patio/start_scb.sh > /opt/PATIO.log 2>&1
+
+ [Install]
+ WantedBy=multi-user.target
