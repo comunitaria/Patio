@@ -1,4 +1,4 @@
-Django==2.2
+Django==2.2.24
 
 django-rq==2.4.1
 djangorestframework==3.9.4
