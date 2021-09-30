@@ -1,7 +1,7 @@
 Django==2.2
 
 django-rq==2.4.1
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 djangorestframework-simplejwt==4.6.0
 
 Jinja2==2.10.1
