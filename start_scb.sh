@@ -5,6 +5,10 @@
 # exit when any command fails
 set -e
 
+# Pull the repository to get latest updates, this will work after
+# first checkout.
+git pull
+
 VENV_DIR="/opt/patio/scb_env"
 if [ ! -d "$VENV_DIR" ]; then
   echo "Creating virtual env..."
