@@ -85,11 +85,11 @@ class EnergyMonitor(object):
             for sensor in sensors:
                 value_date, value = sensors_data.get_sensor_value(
                     sensors[sensor])
-                
+
                 if value_date is not None:
                     date = datetime.strptime(value_date, '%Y-%m-%dT%H:%M:%S')
                     date = date.strftime(datetime_format)
-                
+
                 if value is None:
                     # Connection issues, continue and try later
                     logging.info("Null value, retrying later")
