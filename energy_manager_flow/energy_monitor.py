@@ -126,19 +126,26 @@ class EnergyMonitor(object):
 
     def save_to_DLT(self, data):
         saved_log_id = ""
-        if config.IOTA:
-            response = requests.get("http://localhost:3000",
-                                    params={"message": json.dumps(data)})
-            response = response.json()
-            saved_log_id = response['root']
-        else:  # Zenroom
-            response = requests.post(
-                "http://localhost:3300/api/patio_save_energy",
-                json={"data": {"dataToStore": data}
-                      }
-                                     )
-            response = response.json()
-            saved_log_id = response['log_tag']
+        try:
+            if config.IOTA:
+                response = requests.get("http://localhost:3000",
+                                        params={"message": json.dumps(data)})
+                response = response.json()
+                saved_log_id = response['root']
+            else:  # Zenroom
+                response = requests.post(
+                    "http://localhost:3300/api/patio_save_energy",
+                    json={"data": {"dataToStore": data}
+                        }
+                                        )
+                response = response.json()
+                saved_log_id = response['log_tag']
+        except requests.exceptions.Timeout:
+            logging.error("Timeout when requesting save to DLT")
+        except requests.exceptions.ConnectionError:
+            logging.error("ConnectionError when requesting save to DLT")
+        except requests.exceptions.RequestException as e:
+            logging.error("Exception %s when requesting  save to DLT", str(e))
 
         return saved_log_id
 

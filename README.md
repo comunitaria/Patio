@@ -17,6 +17,10 @@ The patio.service file must be copied to systemd services folder:
 <code>sudo systemctl daemon-reload</code>
 <code>sudo systemctl enable patio.service</code>
 
+Now, the service will be started on every device reboot.
+Additionally, it can be started by executing:
+<code>sudo service patio start</code>
+
 You can monitor the service logs with:
 <code>sudo journalctl -u patio -n 100 -f</code>
 
@@ -25,9 +29,9 @@ You can monitor the service logs with:
 
 
 ## Zenroom
-- Alternatively, Zenroom can be used instead of IOTA's MAM channels. For that, the smart contract is already wrapped into a Dockerfile under zenroom folder that needs to be build and running before launching the energy monitoring process:
-`docker build -t zenroom_patio .`
-`docker run -p 3300:3300 -p 3301:3301 zenroom_patio`
+- Alternatively, Zenroom can be used instead of IOTA's MAM channels. For that, the smart contract is already wrapped into a Dockerfile under zenroom folder that needs to be build and running BEFORE launching the energy monitoring process:
+`sudo docker build -t zenroom_patio .`
+`sudo docker run -p 3300:3300 -p 3301:3301 -d --restart always zenroom_patio`
 
 Example save:
 <code>POST http://localhost:3300/api/patio_save_energy

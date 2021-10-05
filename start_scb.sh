@@ -29,8 +29,9 @@ BGPID=$!
 sleep 15
 cd ../energy_manager_flow
 
-# Download config file. This URL must be defined for each PATIO device
-wget https://storage.googleapis.com/miscellanius/PATIO/config.py.test
+# Download config file. This URL must be defined for each PATIO device,
+# ideally in an ENV variable
+wget https://storage.googleapis.com/miscellanius/PATIO/config.py.test -O config.py
 
 python main.py
 
