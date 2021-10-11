@@ -41,8 +41,9 @@ def get_sensor_value(sensor_id):
             response = session.get(iota_url, auth=config.IOTA_WATT_AUTH)
             logs = response.json().get('data')
             if logs:
-                date, latest_value = logs[-1]
-                latest_value = str(latest_value)
+                date, recent_value = logs[-1]
+                if recent_value is not None:
+                    latest_value = str(recent_value)
         except requests.exceptions.Timeout:
             logging.error("Timeout when requesting %s", iota_url)
         except requests.exceptions.ConnectionError:

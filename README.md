@@ -12,6 +12,8 @@ This repository contains the software expected to be running on PATIO, the IOT H
 You can easily do that by cloning the repo into /opt as follows:
 <code>sudo git clone https://github.com/comunitaria/Patio.git /opt/patio</code>
 
+Requirements before running PATIO and the DLTs: python3, npm (upgraded), docker
+
 The patio.service file must be copied to systemd services folder:
 <code>sudo cp patio.service /lib/systemd/system/patio.service</code>
 <code>sudo systemctl daemon-reload</code>
