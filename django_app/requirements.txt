@@ -4,7 +4,7 @@ django-rq==2.4.1
 djangorestframework==3.9.4
 djangorestframework-simplejwt==4.6.0
 
-Jinja2==2.10.1
+Jinja2==2.11.3
 
 joblib==0.15.1
 
