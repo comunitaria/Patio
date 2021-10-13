@@ -1,3 +1,4 @@
 # Using Python 3.7
 requests
 pi-ina219
+sentry-sdk==1.4.3

@@ -4,7 +4,16 @@ import time
 from multiprocessing import Process
 from energy_monitor import EnergyMonitor
 import config
+import sentry_sdk
 
+sentry_sdk.init(
+    "https://8a30ed4b48814d5c9406dcf308eb22e4@o106308.ingest.sentry.io/6005756",
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0
+)
 
 if __name__ == '__main__':
     """
