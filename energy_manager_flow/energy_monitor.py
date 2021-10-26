@@ -115,7 +115,7 @@ class EnergyMonitor(object):
                 response = requests.post("%s/energy/save" %
                                          config.base_backend_url,
                                          json=data)
-                logging.info(response.json())
+                # logging.info(response.json())
                 if not response.ok:
                     logging.error(response.content)
 
