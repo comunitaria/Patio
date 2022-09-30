@@ -6,7 +6,7 @@ djangorestframework-simplejwt==4.6.0
 
 Jinja2==2.10.1
 
-joblib==0.15.1
+joblib==1.2.0
 
 jsonpickle
 jsonschema
